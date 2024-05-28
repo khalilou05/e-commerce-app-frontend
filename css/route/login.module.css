@@ -1,0 +1,147 @@
+.wraper {
+  width: 100%;
+  background-color: #212026;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wraper .form {
+  display: flex;
+  background-color: rgb(38, 37, 43);
+  flex-direction: column;
+  height: 60%;
+  width: 40%;
+  user-select: none;
+  border-radius: 20px;
+}
+.wraper .form .top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.wraper .form .top svg {
+  width: 60px;
+  height: 60px;
+}
+.wraper .form .top h1 {
+  font-family: "samim";
+  font-size: 48px;
+  color: white;
+  font-weight: bolder;
+  top: 0;
+  margin: 0;
+  padding-right: 10px;
+}
+.wraper .form .main {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.wraper .form .main .error_msg {
+  position: absolute;
+  right: 25%;
+  top: 0;
+  padding: 5px;
+  color: rgb(242, 91, 91);
+  border-radius: 10px;
+}
+.wraper .form .main p {
+  margin: 0;
+  padding: 0;
+}
+.wraper .form .main .input_container {
+  position: relative;
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  gap: 40px;
+  font-family: "samim";
+}
+.wraper .form .main .input_container .eye_cross {
+  position: absolute;
+  cursor: pointer;
+  bottom: 94px;
+  left: 18px;
+}
+.wraper .form .main .input_container .inp_usr:focus + .username, .wraper .form .main .input_container .inp_usr:valid + .username {
+  top: -12px;
+  color: white;
+  opacity: 1;
+}
+.wraper .form .main .input_container .inp_pass:focus + .password, .wraper .form .main .input_container .inp_pass:valid + .password {
+  color: white;
+  opacity: 1;
+  top: 75px;
+}
+.wraper .form .main .input_container .username {
+  position: absolute;
+  padding: 0 5px;
+  font-family: "samim";
+  font-size: small;
+  top: 12px;
+  right: 15px;
+  pointer-events: none;
+  color: rgb(211, 211, 211);
+  background-color: rgb(38, 37, 43);
+  transition: all 160ms;
+  opacity: 0.5;
+}
+.wraper .form .main .input_container .password {
+  position: absolute;
+  font-family: "samim";
+  font-size: small;
+  padding: 0 5px;
+  pointer-events: none;
+  top: 95px;
+  right: 15px;
+  color: rgb(211, 211, 211);
+  opacity: 0.5;
+  background-color: rgb(38, 37, 43);
+  transition: all 160ms;
+}
+.wraper .form .main .input_container input {
+  height: 45px;
+  background-color: transparent !important;
+  border: 1px solid white;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  padding: 8px 20px;
+  font-weight: 200;
+  letter-spacing: 1.5px;
+}
+.wraper .form .main .input_container button {
+  all: unset;
+  background-color: #008dda;
+  font-family: "samim";
+  color: white;
+  border-radius: 10px;
+  width: 6rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.wraper .form .main .input_container button:hover {
+  background-color: rgba(0, 142, 218, 0.7215686275);
+}
+.wraper .form .main .input_container .inp_btm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wraper .form .main .input_container .inp_btm a {
+  font-family: "samim";
+  color: #008dda;
+  text-decoration: none;
+  font-size: small;
+}

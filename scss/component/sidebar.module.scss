@@ -1,0 +1,136 @@
+@use "../base";
+
+.wraper {
+  height: 100%;
+  width: 50px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  background-color: base.$sidebar_bgColor;
+  transition: width 300ms ease;
+  .top_section {
+    position: relative;
+
+    height: 30%;
+    .menuIcon {
+      cursor: pointer;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      bottom: 0;
+      left: 14px;
+      height: auto;
+      width: 25px;
+      .top_line {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        border-radius: 100px;
+        transition: all 300ms ease;
+
+        &__close {
+          width: 50%;
+          height: 3px;
+          background-color: white;
+          border-radius: 100px;
+          transform: translate(4px, 2px);
+
+          rotate: 45deg;
+          transition: all 300ms ease;
+        }
+      }
+      .mid_line {
+        width: 100%;
+        height: 3px;
+        border-radius: 100px;
+
+        background-color: white;
+      }
+      .last_line {
+        width: 100%;
+        height: 3px;
+        border-radius: 100px;
+        background-color: white;
+        transition: all 300ms ease;
+
+        &__close {
+          rotate: -45deg;
+          width: 50%;
+          height: 3px;
+          border-radius: 100px;
+          transform: translate(4px, -2px);
+          background-color: white;
+          transition: all 300ms ease;
+        }
+      }
+    }
+  }
+
+  .midle_section {
+    height: 100%;
+    display: flex;
+    // border: 0.5px solid red;
+
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+
+    li {
+      display: flex;
+      align-items: center;
+      // border: 0.5px solid red;
+      list-style: none;
+      height: 45px;
+      width: 80%;
+      gap: 10px;
+      padding-right: 7px;
+      padding-top: 3px;
+      border-radius: 8px;
+      cursor: pointer;
+
+      a {
+        text-decoration: none;
+        color: white;
+        transition: opacity 300ms ease;
+        text-wrap: nowrap;
+      }
+      &:hover {
+        background-color: rgba(156, 156, 156, 0.284);
+      }
+    }
+  }
+  .bottom_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 10px;
+      // border: 0.5px solid red;
+      width: 80%;
+      height: 45px;
+      border-radius: 8px;
+      padding-right: 7px;
+      cursor: pointer;
+      &:last-child {
+        margin-bottom: 47px;
+        margin-top: 10px;
+        height: 45px;
+        border-radius: 8px;
+      }
+      &:hover {
+        background-color: rgba(156, 156, 156, 0.284);
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        text-wrap: nowrap;
+        transition: opacity 300ms ease;
+      }
+    }
+  }
+}

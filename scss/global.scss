@@ -1,0 +1,16 @@
+@use "base";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: base.$background;
+  color: base.$textColor;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}

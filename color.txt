@@ -1,0 +1,3 @@
+main color : #212026
+
+side bar color : rgb(38, 37, 43)

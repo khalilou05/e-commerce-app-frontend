@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #212026;
+  color: whitesmoke;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
