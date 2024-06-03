@@ -20,7 +20,7 @@ export type UIAllarticle = {
 
 // ! ---------- GET ALL ARTICLE ------------
 export const getAllArticle = async (): Promise<UIAllarticle[] | null> => {
-  const req = await fetch(`${baseUrl}/`);
+  const req = await fetch(`${baseUrl}/`, { cache: "no-store" });
   if (req.status === 200) return req.json();
   return null;
 };
