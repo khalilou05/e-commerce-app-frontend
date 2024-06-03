@@ -2,9 +2,9 @@ FROM node
 
 WORKDIR /frontend
 
-COPY . .
 
 RUN npm i
 RUN npm run build
+COPY . .
 
 CMD [ "npm", "start" ]
