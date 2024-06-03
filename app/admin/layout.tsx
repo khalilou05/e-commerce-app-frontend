@@ -36,7 +36,7 @@ function AdminLayout({
         alignItems: "center",
       }}
     >
-      <Loading size="50px" />
+      <Loading border="8" size="50px" />
     </section>
   );
 }
