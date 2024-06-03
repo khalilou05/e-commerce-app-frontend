@@ -1,82 +1,312 @@
+@use "../base";
 .wraper {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  width: 100%;
   height: 100%;
+  width: 100%;
 
-  .main_wraper {
+  .card {
     width: 80%;
-    height: 60%;
-    border: 1px solid rgb(246, 255, 0);
-
+    height: 80%;
+    background-color: base.$sidebar_bgColor;
     display: flex;
+    overflow: hidden;
+    border-radius: 20px;
 
-    .image__wrpaer {
-      width: 50%;
+    .done {
+      width: 100%;
       height: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 1px solid rgb(251, 0, 255);
+      gap: 20px;
 
-      label {
-        // border: 1px solid red;
-        border-radius: 8px;
+      button {
+        outline: none;
+        border: none;
+        background-color: base.$accent;
+        color: base.$textColor;
+        padding: 15px;
+        width: 10%;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: medium;
         cursor: pointer;
+      }
+    }
+    // ---- right section
+    .right_sec {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      height: 100%;
+
+      .input_group {
         position: relative;
 
-        &:hover {
-          border: 1px solid white;
-          background-color: lightyellow;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        justify-content: space-between;
+        width: 80%;
+        height: 80%;
+
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        justify-content: space-between;
+        width: 80%;
+        height: 80%;
+        .price_qty {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+
+          & label {
+            position: absolute;
+            padding: 0px 5px;
+            opacity: 0.5;
+            &:nth-of-type(1) {
+              top: 10%;
+              right: 5%;
+            }
+            &:nth-of-type(2) {
+              top: 10%;
+              right: 60%;
+            }
+          }
+
+          & input {
+            width: 45%;
+
+            &:nth-of-type(1) {
+              width: 50%;
+
+              &:focus,
+              &:valid {
+                + label {
+                  &:nth-of-type(1) {
+                    top: -25%;
+                    opacity: 1;
+                    font-size: small;
+                  }
+                }
+              }
+            }
+
+            &:nth-of-type(2) {
+              &:focus,
+              &:valid {
+                + label {
+                  &:nth-of-type(2) {
+                    top: -25%;
+                    opacity: 1;
+                    font-size: small;
+                  }
+                }
+              }
+            }
+          }
         }
-        svg {
-          color: red;
+
+        .ref_shipping {
+          width: 100%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          gap: 5%;
+          text-wrap: nowrap;
+          label {
+            position: absolute;
+          }
+          input[type="text"] {
+            width: 50%;
+
+            &:focus,
+            &:valid {
+              + label {
+                opacity: 1;
+                top: -20%;
+
+                right: 5%;
+                font-size: small;
+              }
+            }
+          }
+
+          .shipping {
+            background-color: base.$sidebar_bgColor;
+            border-radius: 10px;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            position: relative;
+            & label {
+              position: static;
+            }
+            & input[type="checkbox"] {
+              accent-color: base.$accent;
+              width: 15px;
+              height: 15px;
+
+              &:checked {
+                + label {
+                  opacity: 1;
+                }
+              }
+            }
+          }
         }
-        .plus_icon {
-          color: black;
+
+        label {
+          padding: 0px 5px;
+          margin: 0;
           position: absolute;
-          height: 20px;
-          width: 20px;
-          top: 65%;
-          right: 5px;
-          text-align: center;
-          border-radius: 20px;
-          background-color: rgb(20, 169, 62);
+          background-color: base.$sidebar_bgColor;
+          pointer-events: none;
+          transition: all 160ms;
+          opacity: 0.5;
+          // background-color: red;
+
+          &:nth-of-type(1) {
+            top: 1%;
+            right: 5%;
+          }
+          &:nth-of-type(2) {
+            top: 46%;
+            right: 5%;
+          }
+        }
+        input {
+          padding-right: 5%;
+          padding-top: 5px;
+          width: 100%;
+          height: 45px;
+          background-color: transparent;
+          border: 0.9px solid white;
+          border-radius: 10px;
+          outline: none;
+          color: white;
+          font-weight: 200;
+          letter-spacing: 1.5px;
+        }
+
+        & > input {
+          &:is(:focus, :valid) {
+            + label {
+              top: -3%;
+
+              opacity: 1;
+            }
+          }
+        }
+
+        textarea {
+          width: 100%;
+          padding: 5%;
+
+          height: 40%;
+          resize: none;
+          background-color: transparent;
+          border: 0.9px solid white;
+          border-radius: 10px;
+          outline: none;
+          color: white;
+          font-weight: 200;
+
+          &:focus,
+          &:valid {
+            + label {
+              &:last-of-type {
+                top: 42%;
+                opacity: 1;
+              }
+            }
+          }
+        }
+        button {
+          align-self: flex-end;
+          outline: none;
+          border: none;
+          background-color: base.$accent;
+          color: base.$textColor;
+          padding: 15px;
+          width: 100%;
+          border-radius: 5px;
+          font-weight: bold;
+          font-size: medium;
+          cursor: pointer;
+
+          &:hover {
+            background-color: base.$b-100;
+          }
         }
       }
+    }
+
+    .left_sec {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+
       input {
         display: none;
       }
-    }
-    .info__wraper {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      input[type="text"] {
-        height: 45px;
-        width: 80%;
-        border: 1px solid white;
-        background-color: transparent;
+
+      svg {
+        opacity: 0.01;
+        position: absolute;
+        z-index: 1;
       }
-      button {
-        width: 80;
-      }
-      textarea {
-        height: 50%;
-        width: 80%;
-        resize: none;
-        background-color: transparent;
-      }
-      .price_qty_wraper {
+
+      span {
+        width: 100px;
+        height: 100px;
+        background-color: #7569b69e;
         display: flex;
-        gap: 10px;
-        input {
-          width: 25%;
-          background-color: orange;
+
+        border-radius: 10px;
+        z-index: 2;
+        &:hover {
+          border: 0.8px solid white;
         }
+
+        label {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          svg {
+            position: relative;
+            opacity: 1;
+
+            top: 10px;
+
+            width: 100%;
+          }
+          p {
+            text-align: center;
+          }
+        }
+
+        // }
       }
     }
   }

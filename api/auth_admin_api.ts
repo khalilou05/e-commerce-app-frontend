@@ -1,4 +1,5 @@
-const baseUrl = "http://127.0.0.1:8000";
+import { SERVER_IP } from "@/constant";
+const baseUrl = SERVER_IP;
 const token = localStorage.getItem("token") || "";
 
 type LoginData = {

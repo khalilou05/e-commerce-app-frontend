@@ -30,6 +30,7 @@
 }
 .wraper .table__wraper table thead tr th {
   text-align: right;
+  font-weight: 400;
   padding: 10px 0px;
 }
 .wraper .table__wraper table thead tr th:nth-child(1) {
@@ -49,6 +50,7 @@
 }
 .wraper .table__wraper table tbody tr td:nth-child(1) {
   padding-right: 20px;
+  font-weight: 200;
 }
 .wraper .table__wraper table tbody tr td input[type=text] {
   width: 70px;
@@ -61,8 +63,9 @@
   background-color: rgba(255, 255, 255, 0.238);
 }
 .wraper .table__wraper table tbody tr td input[type=checkbox] {
-  accent-color: rgb(119, 175, 36);
-  background-color: rgb(205, 205, 205);
+  accent-color: #7469b6;
+  width: 15px;
+  height: 15px;
 }
 .wraper .save_button {
   display: flex;
@@ -70,7 +73,6 @@
   align-items: center;
   width: 100px;
   height: 50px;
-  border: 1px solid red;
   color: whitesmoke;
   outline: none;
   gap: 10px;
@@ -82,11 +84,8 @@
   cursor: pointer;
   top: 20%;
   right: 5%;
-  background-color: rgb(64, 106, 64);
-}
-.wraper .save_button svg {
-  fill: white;
+  background-color: #7469b6;
 }
 .wraper .save_button:hover {
-  background-color: rgb(119, 175, 36);
+  background-color: #6b60a2;
 }

@@ -1,13 +1,11 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-
+import style from "@/css/component/imageSlider.module.css";
 export default function ImageSlider({
   imgUrl,
-  title,
 }: {
   imgUrl: string[] | undefined;
-  title: string | undefined;
 }) {
   const [imgIndex, setImgIndex] = useState(0);
   const btnSub = useRef<HTMLElement | null>(null);
@@ -25,7 +23,6 @@ export default function ImageSlider({
   }
 
   useEffect(() => {
-    document.title = `${title}`;
     btnSub.current = document.getElementById("submit");
     imgBox.current = document.getElementById("imgbox");
 
@@ -33,24 +30,28 @@ export default function ImageSlider({
   }, []);
 
   return (
-    <>
-      {imgUrl?.map((item, index) => (
-        <Image
-          key={index}
-          src={`http://localhost:8000/static/${item}`}
-          width={600}
-          height={400}
-          alt="img"
-          style={{
-            width: "auto",
-            height: "auto",
-            translate: `${-100 * imgIndex}%`,
-            transition: "all 200ms",
-            flexShrink: "unset",
-            userSelect: "none",
-          }}
-        />
-      ))}
+    <section className={style.img_wraper}>
+      {imgUrl?.map((item, index) => {
+        const url = !item.startsWith("blob")
+          ? `http://localhost:8000/static/${item}`
+          : item;
+        return (
+          <Image
+            key={index}
+            src={url}
+            fill
+            alt="img"
+            style={{
+              right: `${-100 * index}%`,
+              translate: `${-100 * imgIndex}%`,
+              transition: "all 200ms",
+              userSelect: "none",
+
+              objectFit: "cover",
+            }}
+          />
+        );
+      })}
 
       <button
         style={{ position: "absolute", right: "0", top: "0" }}
@@ -64,13 +65,13 @@ export default function ImageSlider({
       >
         ➜
       </button>
-      <div className="indicator_section">
+      <div className={style.indicator_section}>
         {imgUrl && imgUrl.length < 12 ? (
           imgUrl?.map((img, index) => (
             <span
               onClick={() => setImgIndex(index)}
               key={index}
-              className="ind_point"
+              className={style.ind_point}
               style={{
                 width: "7px",
                 height: "7px",
@@ -87,6 +88,6 @@ export default function ImageSlider({
           </span>
         )}
       </div>
-    </>
+    </section>
   );
 }

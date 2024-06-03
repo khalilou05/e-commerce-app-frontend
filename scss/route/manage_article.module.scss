@@ -8,6 +8,20 @@
   .main_section {
     width: 80%;
     height: 60%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
     border: 1px solid red;
+
+    .article_wraper {
+      display: flex;
+      width: 100%;
+
+      div {
+        height: 100px;
+
+        width: 100%;
+      }
+    }
   }
 }

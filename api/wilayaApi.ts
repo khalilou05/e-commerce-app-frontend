@@ -1,4 +1,5 @@
-const baseUrl = "http://127.0.0.1:8000";
+import { SERVER_IP } from "@/constant";
+const baseUrl = SERVER_IP;
 
 export type wilayaData = {
   [key: string]: string | number;
@@ -9,10 +10,27 @@ export type wilayaData = {
   home_price: number;
 };
 
+export type baladiyaItem = {
+  id: number;
+  baladiya_name: string;
+};
+
+export type baladiya = {
+  wilaya_code: number;
+  wilaya: string;
+  baladiya: baladiyaItem[];
+};
+
 export async function getAllWilaya(): Promise<wilayaData[] | null> {
   const req = await fetch(`${baseUrl}/shipping/available`, {
     cache: "no-cache",
   });
   if (req.ok) return await req.json();
   return null;
+}
+
+export async function getBaladiya(): Promise<baladiya[] | null> {
+  const baladiya = fetch("/algeria_cities3.json");
+  const data = (await baladiya).json();
+  return data;
 }

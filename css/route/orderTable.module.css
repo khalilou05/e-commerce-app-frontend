@@ -14,33 +14,34 @@
 .wraper .top_tab_wraper {
   height: 20px;
   display: flex;
+  position: relative;
   width: 100%;
   height: 50px;
-  background-color: gray;
+  background-color: #3d3d3d;
+  border: 1px solid red;
 }
 .wraper .top_tab_wraper .tab_button {
   display: flex;
   align-items: flex-end;
   width: 100px;
 }
-.wraper .top_tab_wraper .tab_button span {
-  width: 100px;
-  display: flex;
-  align-items: flex-end;
-  height: 60%;
-}
 .wraper .top_tab_wraper .action_button_group {
   display: flex;
   padding-right: 15px;
-  width: 260px;
+  background-color: rgb(38, 37, 43);
+  text-wrap: nowrap;
+  width: 300px;
+  gap: 10px;
 }
 .wraper .top_tab_wraper .action_button_group span {
   display: flex;
   border-radius: 5px;
+  justify-content: center;
+  align-items: center;
   width: 120px;
 }
 .wraper .top_tab_wraper .action_button_group span p:first-child {
-  width: 30%;
+  width: 20px;
 }
 .wraper .top_tab_wraper .action_button_group .btn_wraper {
   display: flex;
@@ -53,7 +54,8 @@
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  width: 30px;
+  font-size: small;
+  width: 50px;
   height: 30px;
 }
 .wraper .top_tab_wraper .action_button_group .btn_wraper span:first-child:hover {
@@ -64,6 +66,31 @@
 }
 .wraper .top_tab_wraper .action_button_group .btn_wraper span:nth-child(3):hover {
   background-color: rgb(82, 3, 3);
+}
+.wraper .top_tab_wraper .command_type {
+  position: absolute;
+  flex-direction: column;
+  right: 40%;
+  overflow: hidden;
+  z-index: 5;
+  padding: 0;
+  margin: 0;
+  right: 300px;
+  width: 150px;
+  height: 50px;
+  transition: height 150ms;
+}
+.wraper .top_tab_wraper .command_type:hover {
+  height: 100px;
+}
+.wraper .top_tab_wraper .command_type div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+.wraper .top_tab_wraper .datePicker {
+  position: relative;
 }
 .wraper .table_wraper {
   height: 80%;
@@ -96,11 +123,12 @@
   text-align: right;
   padding: 0;
   margin: 0;
+  font-weight: 300;
 }
 .wraper .table_wraper table thead tr th input[type=checkbox] {
   margin: 0;
   height: 15px;
-  accent-color: green;
+  accent-color: #7469b6;
   width: 15px;
 }
 .wraper .table_wraper table thead tr th:first-child {
@@ -113,16 +141,21 @@
 .wraper .table_wraper table thead tr th:nth-child(3) {
   text-align: right;
 }
-.wraper .table_wraper table thead tr th:nth-child(4), .wraper .table_wraper table thead tr th:nth-child(5), .wraper .table_wraper table thead tr th:nth-child(6), .wraper .table_wraper table thead tr th:nth-child(7) {
+.wraper .table_wraper table thead tr th:nth-child(4), .wraper .table_wraper table thead tr th:nth-child(5), .wraper .table_wraper table thead tr th:nth-child(7) {
   width: 70px;
 }
+.wraper .table_wraper table thead tr th:nth-child(7) {
+  text-align: center;
+}
 .wraper .table_wraper table thead tr th:nth-child(6) {
+  width: 120px;
   text-align: center;
 }
 .wraper .table_wraper table thead tr th:nth-child(4), .wraper .table_wraper table thead tr th:nth-child(5) {
   text-align: center;
 }
 .wraper .table_wraper table thead tr th:nth-child(9) {
+  width: 100px;
   text-align: center;
 }
 .wraper .table_wraper table thead tr th:nth-child(8) {
@@ -133,7 +166,7 @@
   text-align: center;
 }
 .wraper .table_wraper table thead tr th:nth-child(12) {
-  width: 100px;
+  width: 50px;
   text-align: center;
 }
 .wraper .table_wraper table thead tr th:nth-child(12) button {
@@ -157,6 +190,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-weight: 200;
   color: rgb(199, 199, 199);
 }
 .wraper .table_wraper table tbody tr td a {
@@ -170,7 +204,7 @@
 .wraper .table_wraper table tbody tr td:nth-child(3) {
   overflow: scroll;
   text-wrap: nowrap;
-  font-weight: 400;
+  font-weight: 300;
 }
 .wraper .table_wraper table tbody tr td:nth-child(2) {
   text-align: right;
@@ -180,14 +214,24 @@
 .wraper .table_wraper table tbody tr td:nth-child(4), .wraper .table_wraper table tbody tr td:nth-child(5), .wraper .table_wraper table tbody tr td:nth-child(7) {
   width: 70px;
 }
-.wraper .table_wraper table tbody tr td:nth-child(9), .wraper .table_wraper table tbody tr td:nth-child(10) {
+.wraper .table_wraper table tbody tr td:nth-child(7) {
+  text-align: center;
+}
+.wraper .table_wraper table tbody tr td:nth-child(9) {
+  width: 80px;
+  text-align: center;
+}
+.wraper .table_wraper table tbody tr td:nth-child(10) {
   text-align: center;
 }
 .wraper .table_wraper table tbody tr td:nth-child(6) {
   text-align: center;
-  cursor: pointer;
 }
 .wraper .table_wraper table tbody tr td:nth-child(8) {
+  text-align: center;
+}
+.wraper .table_wraper table tbody tr td:nth-child(12) {
+  width: 50px;
   text-align: center;
 }
 .wraper .table_wraper table tbody tr td:nth-child(4), .wraper .table_wraper table tbody tr td:nth-child(5) {
@@ -202,12 +246,13 @@
 }
 .wraper .table_wraper table tbody tr td input[type=checkbox] {
   margin: 0;
-  accent-color: green;
+  accent-color: #7469b6;
   height: 15px;
   width: 15px;
 }
 .wraper .table_wraper table tbody tr td select {
   font-size: medium;
+  background-color: rgb(218, 218, 218);
 }
 .wraper .table_wraper table tbody tr td button {
   all: unset;

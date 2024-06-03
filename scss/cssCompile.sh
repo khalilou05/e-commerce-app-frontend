@@ -1,3 +1,2 @@
 #!/bin/bash
-
-sass -w .:../css --no-source-map
+sass -w .:../css --no-source-map 

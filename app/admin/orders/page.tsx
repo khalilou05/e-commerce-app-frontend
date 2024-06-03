@@ -1,29 +1,29 @@
 "use client";
 
 import type { Order } from "@/api/OrderApi";
-import type { wilayaData } from "@/api/wilayaApi";
+import { wilayaData, getBaladiya, baladiyaItem } from "@/api/wilayaApi";
 import { getAllOrders } from "@/api/OrderApi";
 import { phoneFormat } from "@/utils/phoneNformat";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import CheckIcon from "@/assets/icons/check";
 import TrashIcon from "@/assets/icons/trash";
 import BanIcon from "@/assets/icons/ban";
 import PenIcon from "@/assets/icons/pen";
 import SaveIcon from "@/assets/icons/save_icon";
 import style from "@/css/route/orderTable.module.css";
-import Loading from "@/components/Loding";
+import Loding from "@/components/Loding";
 import { getAllWilaya } from "@/api/wilayaApi";
 import ErrorIcon from "@/assets/icons/error";
 import EyeCrosed from "@/assets/login_icon/eyecrossed";
 import EyeOpned from "@/assets/login_icon/eyeOpen";
-import OpenTab from "@/assets/icons/openTab";
 
 type status = "loading" | "error" | "done";
 
 function OrderTable() {
   const [allowFetch, setAllowFetch] = useState(false);
   const [rowToEdit, setRowToEdit] = useState<number | null>(null);
-  const [reqUrl, setReqUrl] = useState("order");
+  const [slectedWilaya, setslectedWilaya] = useState<number | null>(null);
+  const [baladia, setBaladiya] = useState<baladiyaItem[] | null>();
   const [showActButton, setShowActButton] = useState(false);
   const [orders, setorders] = useState<Order[] | null>(null);
   const [wilaya, setWilaya] = useState<wilayaData[] | null>();
@@ -35,12 +35,13 @@ function OrderTable() {
   useEffect(() => {
     (async () => {
       try {
-        const reqOrder = await getAllOrders(cntrlr.signal, reqUrl);
-
+        const reqOrder = await getAllOrders(cntrlr.signal);
         if (reqOrder != null) {
           setorders(reqOrder);
           setStatus("done");
+          return;
         }
+        setStatus("error");
       } catch (err) {
         setTimeout(() => {
           setStatus("error");
@@ -60,6 +61,18 @@ function OrderTable() {
       } catch (err) {}
     })();
   }, [allowFetch]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await getBaladiya();
+        const filtredWil = data?.find(
+          (item) => item.wilaya_code === slectedWilaya
+        );
+
+        setBaladiya(filtredWil?.baladiya);
+      } catch (err) {}
+    })();
+  }, [slectedWilaya]);
   // update the selected row
   function handlRowchange(
     rowId: number,
@@ -74,18 +87,13 @@ function OrderTable() {
       setorders(updatedOrders);
     }
   }
+
   // open new window for article
-  function openPopUp(orderId: number) {
-    const newPopUp = window.open(
-      `http://localhost:3000/article/${orderId}`,
-      "_blank"
-    );
-  }
 
   if (status === "loading")
     return (
       <section className={style.wraper}>
-        <Loading size="50px" />
+        <Loding border="10" size="100px" />
       </section>
     );
   if (status === "error")
@@ -106,15 +114,30 @@ function OrderTable() {
             </span>
             <div className={style.btn_wraper}>
               <span title="تأكيد الكل">
+                تأكيد
                 <CheckIcon />
               </span>
               <span title="">
-                <BanIcon />
+                حظر
+                <BanIcon size={"15px"} color={"white"} />
               </span>
-              <span title="">
+              <span title="" onClick={() => console.log(baladia)}>
+                حذف
                 <TrashIcon />
               </span>
             </div>
+          </div>
+          <div className={style.command_type}>
+            <div>طلبيات غير مأكدة</div>
+            <div>طلبيات مأكدة</div>
+          </div>
+          <div className={style.datePicker}>
+            {/* <input
+              onChange={(e) => console.log(e.target.value)}
+              id="date"
+              type="date"
+            /> */}
+            {/* <label htmlFor="date">x</label> */}
           </div>
         </div>
         <table>
@@ -151,7 +174,11 @@ function OrderTable() {
               <th>تاريخ الطلب</th>
               <th>
                 <button onClick={() => setShowActButton((prv) => !prv)}>
-                  {showActButton ? <EyeOpned /> : <EyeCrosed />}
+                  {showActButton ? (
+                    <EyeOpned color={"white"} size={"15px"} />
+                  ) : (
+                    <EyeCrosed color={"white"} size={"15px"} />
+                  )}
                 </button>
               </th>
             </tr>
@@ -192,8 +219,9 @@ function OrderTable() {
                   {rowToEdit === order.id ? (
                     <select
                       onChange={(e) => {
+                        setslectedWilaya(Number(e.target.value));
                         const getUpdateprice = wilaya?.find(
-                          (witem) => witem.wilaya === e.target.value
+                          (witem) => witem.wilaya_code === e.target.value
                         );
                         handlRowchange(
                           order.id,
@@ -205,16 +233,16 @@ function OrderTable() {
                           "desk_price",
                           getUpdateprice?.desk_price || 0
                         );
-                        handlRowchange(order.id, "wilaya", e.target.value);
+                        handlRowchange(
+                          order.id,
+                          "wilaya",
+                          getUpdateprice?.wilaya || order.wilaya
+                        );
                       }}
                     >
                       <option>--إختر ولاية--</option>
                       {wilaya?.map((item) => (
-                        <option
-                          selected={item.wilaya === order.wilaya}
-                          key={item.id}
-                          value={item.wilaya}
-                        >
+                        <option key={item.id} value={item.wilaya_code}>
                           {item.wilaya_code}
                           &nbsp; &nbsp;
                           {item.wilaya}
@@ -227,21 +255,23 @@ function OrderTable() {
                 </td>
                 <td>
                   {rowToEdit === order.id ? (
-                    <input
-                      type="text"
-                      value={order.baladiya}
-                      onChange={(e) =>
-                        handlRowchange(order.id, "baladiya", e.target.value)
-                      }
-                    />
+                    <select
+                      onChange={(e) => {
+                        handlRowchange(order.id, "baladiya", e.target.value);
+                      }}
+                    >
+                      <option>--إختر بلدية--</option>
+
+                      {baladia?.map((item) => (
+                        <option key={item.id}>{item.baladiya_name}</option>
+                      ))}
+                    </select>
                   ) : (
                     order.baladiya
                   )}
                 </td>
 
-                <td onClick={() => openPopUp(order.article_id)}>
-                  <OpenTab />
-                </td>
+                <td>{order.reference}</td>
                 <td>
                   {rowToEdit === order.id ? (
                     <input
@@ -266,6 +296,7 @@ function OrderTable() {
                 <td>
                   {rowToEdit === order.id ? (
                     <select
+                      defaultValue={order.home_dilevery ? "المنزل" : "المكتب"}
                       onChange={(e) => {
                         const value = e.target.value;
                         if (value == "المكتب") {
@@ -278,12 +309,15 @@ function OrderTable() {
                       <option>--إختر التوصيل--</option>
 
                       <option
-                        selected={order.home_dilevery ? true : false}
+                        // selected={order.home_dilevery ? true : false}
                         value={"المنزل"}
                       >
                         المنزل
                       </option>
-                      <option selected={!order.home_dilevery} value={"المكتب"}>
+                      <option
+                        // selected={!order.home_dilevery}
+                        value={"المكتب"}
+                      >
                         المكتب
                       </option>
                     </select>
@@ -302,9 +336,6 @@ function OrderTable() {
                 >
                   {showActButton ? (
                     <div>
-                      <button title="تأكيد الطلبية">
-                        <CheckIcon />
-                      </button>
                       <button
                         title="تعديل الطلبية"
                         onClick={() =>
@@ -313,13 +344,11 @@ function OrderTable() {
                             : setRowToEdit(order.id)
                         }
                       >
-                        {rowToEdit === order.id ? <SaveIcon /> : <PenIcon />}
-                      </button>
-                      <button title="حظر رقم الهاتف">
-                        <BanIcon />
-                      </button>
-                      <button title="حذف الطلبية">
-                        <TrashIcon />
+                        {rowToEdit === order.id ? (
+                          <SaveIcon color={"#53a20e"} size={"15px"} />
+                        ) : (
+                          <PenIcon />
+                        )}
                       </button>
                     </div>
                   ) : (

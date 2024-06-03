@@ -17,37 +17,38 @@
   .top_tab_wraper {
     height: 20px;
     display: flex;
+    position: relative;
     width: 100%;
     height: 50px;
-    background-color: gray;
+    background-color: #3d3d3d;
+    border: 1px solid red;
     .tab_button {
       display: flex;
       align-items: flex-end;
       width: 100px;
-
-      span {
-        width: 100px;
-        display: flex;
-        align-items: flex-end;
-
-        height: 60%;
-      }
     }
     .action_button_group {
       display: flex;
       // align-items: center;
       // justify-content: space-evenly;
       padding-right: 15px;
-
-      width: 260px;
+      // border: 1px solid rgb(152, 152, 152);
+      background-color: base.$sidebar_bgColor;
+      text-wrap: nowrap;
+      width: 300px;
+      gap: 10px;
       span {
         display: flex;
         border-radius: 5px;
+        justify-content: center;
+        align-items: center;
         width: 120px;
+        // border: 1px solid red;
 
         p {
           &:first-child {
-            width: 30%;
+            width: 20px;
+            // background-color: orange;
           }
         }
       }
@@ -55,6 +56,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        // border: 1px solid red;
 
         margin-right: auto;
         span {
@@ -62,8 +64,8 @@
           cursor: pointer;
           justify-content: center;
           align-items: center;
-
-          width: 30px;
+          font-size: small;
+          width: 50px;
           height: 30px;
 
           &:first-child {
@@ -83,6 +85,38 @@
           }
         }
       }
+    }
+    .command_type {
+      position: absolute;
+
+      flex-direction: column;
+      right: 40%;
+      overflow: hidden;
+      z-index: 5;
+      padding: 0;
+      margin: 0;
+      right: 300px;
+      width: 150px;
+      height: 50px;
+      // background-color: blue;
+      transition: height 150ms;
+      &:hover {
+        height: 100px;
+      }
+
+      // background-color: red;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        // background-color: orange;
+        // width: 100%;
+      }
+    }
+    .datePicker {
+      position: relative;
     }
   }
 
@@ -115,11 +149,12 @@
             text-align: right;
             padding: 0;
             margin: 0;
+            font-weight: 300;
 
             input[type="checkbox"] {
               margin: 0;
               height: 15px;
-              accent-color: green;
+              accent-color: base.$accent;
 
               width: 15px;
             }
@@ -135,11 +170,15 @@
             }
             &:nth-child(4),
             &:nth-child(5),
-            &:nth-child(6),
             &:nth-child(7) {
               width: 70px;
             }
+            &:nth-child(7) {
+              text-align: center;
+            }
+
             &:nth-child(6) {
+              width: 120px;
               text-align: center;
             }
 
@@ -148,6 +187,7 @@
               text-align: center;
             }
             &:nth-child(9) {
+              width: 100px;
               text-align: center;
             }
             &:nth-child(8) {
@@ -159,7 +199,7 @@
             }
 
             &:nth-child(12) {
-              width: 100px;
+              width: 50px;
               text-align: center;
               button {
                 all: unset;
@@ -188,7 +228,7 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
-
+            font-weight: 200;
             color: rgb(199, 199, 199);
 
             a {
@@ -203,7 +243,7 @@
             &:nth-child(3) {
               overflow: scroll;
               text-wrap: nowrap;
-              font-weight: 400;
+              font-weight: 300;
             }
             &:nth-child(2) {
               text-align: right;
@@ -215,15 +255,25 @@
             &:nth-child(7) {
               width: 70px;
             }
-            &:nth-child(9),
+            &:nth-child(7) {
+              text-align: center;
+            }
+            &:nth-child(9) {
+              width: 80px;
+              text-align: center;
+            }
             &:nth-child(10) {
               text-align: center;
             }
             &:nth-child(6) {
               text-align: center;
-              cursor: pointer;
             }
             &:nth-child(8) {
+              text-align: center;
+            }
+            &:nth-child(12) {
+              width: 50px;
+
               text-align: center;
             }
             &:nth-child(4),
@@ -239,12 +289,13 @@
             }
             input[type="checkbox"] {
               margin: 0;
-              accent-color: green;
+              accent-color: base.$accent;
               height: 15px;
               width: 15px;
             }
             select {
               font-size: medium;
+              background-color: rgb(218, 218, 218);
             }
             button {
               all: unset;

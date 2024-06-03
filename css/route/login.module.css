@@ -27,7 +27,7 @@
   height: 60px;
 }
 .wraper .form .top h1 {
-  font-family: "samim";
+  font-family: "hellob1";
   font-size: 48px;
   color: white;
   font-weight: bolder;
@@ -63,7 +63,7 @@
   width: 50%;
   flex-direction: column;
   gap: 40px;
-  font-family: "samim";
+  font-family: "hellob1";
 }
 .wraper .form .main .input_container .eye_cross {
   position: absolute;
@@ -84,7 +84,7 @@
 .wraper .form .main .input_container .username {
   position: absolute;
   padding: 0 5px;
-  font-family: "samim";
+  font-family: "hellob1";
   font-size: small;
   top: 12px;
   right: 15px;
@@ -96,7 +96,7 @@
 }
 .wraper .form .main .input_container .password {
   position: absolute;
-  font-family: "samim";
+  font-family: "hellob1";
   font-size: small;
   padding: 0 5px;
   pointer-events: none;
@@ -120,8 +120,8 @@
 }
 .wraper .form .main .input_container button {
   all: unset;
-  background-color: #008dda;
-  font-family: "samim";
+  background-color: #7469b6;
+  font-family: "hellob1";
   color: white;
   border-radius: 10px;
   width: 6rem;
@@ -132,16 +132,17 @@
   cursor: pointer;
 }
 .wraper .form .main .input_container button:hover {
-  background-color: rgba(0, 142, 218, 0.7215686275);
+  background-color: #6b60a2;
 }
 .wraper .form .main .input_container .inp_btm {
   display: flex;
+  align-self: flex-end;
   justify-content: space-between;
   align-items: center;
 }
 .wraper .form .main .input_container .inp_btm a {
-  font-family: "samim";
-  color: #008dda;
+  font-family: "hellob1";
+  color: #7469b6;
   text-decoration: none;
   font-size: small;
 }

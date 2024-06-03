@@ -142,7 +142,7 @@
         }
         button {
           all: unset;
-          background-color: #008dda;
+          background-color: base.$accent;
           font-family: base.$font;
           color: white;
           border-radius: 10px;
@@ -154,17 +154,17 @@
           cursor: pointer;
 
           &:hover {
-            background-color: #008edab8;
+            background-color: base.$b-100;
           }
         }
         .inp_btm {
           display: flex;
-
+          align-self: flex-end;
           justify-content: space-between;
           align-items: center;
           a {
             font-family: base.$font;
-            color: #008dda;
+            color: base.$accent;
             text-decoration: none;
             font-size: small;
           }

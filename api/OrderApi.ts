@@ -1,4 +1,5 @@
-const baseUrl = "http://127.0.0.1:8000";
+import { SERVER_IP } from "@/constant";
+const baseUrl = SERVER_IP;
 export type Order = {
   id: number;
   full_name: string;
@@ -7,6 +8,7 @@ export type Order = {
   baladiya: string;
   price: number;
   article_id: number;
+  reference: string;
   quantity: number;
   home_dilevery: boolean;
   order_date: string;
@@ -15,15 +17,12 @@ export type Order = {
 };
 
 // ! ---------- GET ALL ORDERS ------------
-export async function getAllOrders(
-  signal: any,
-  reqUrl: string
-): Promise<Order[] | null> {
-  const req = await fetch(`${baseUrl}/${reqUrl}`, {
+export async function getAllOrders(signal: any): Promise<Order[] | null> {
+  const req = await fetch(`${baseUrl}/order`, {
     cache: "no-cache",
     signal: signal,
   });
-  if (req.ok) return await req.json();
+  if (req.status == 200) return await req.json();
   return null;
 }
 

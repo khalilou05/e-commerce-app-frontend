@@ -8,7 +8,6 @@ import OrdersIcon from "@/assets/aside_icons/orders.js";
 import BanIcon from "@/assets/aside_icons/ban.js";
 import SettingIcon from "@/assets/aside_icons/setting.js";
 import LogoutIcon from "@/assets/aside_icons/logout.js";
-
 import style from "@/css/component/sidebar.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -91,24 +90,12 @@ function Sidebar() {
             <OrdersIcon color={"white"} />
           </div>
           <Link
+            // onClick={() => setnavOpen((prv) => (prv ? false : prv))}
             style={{ opacity: navOpen ? 1 : 0 }}
             ref={Link4}
             href={"/admin/orders"}
           >
             الطلبيات
-          </Link>
-        </li>
-        <li onClick={() => Link5.current?.click()}>
-          <div className={style.Icon}>
-            <BanIcon color={"white"} />
-          </div>
-
-          <Link
-            style={{ opacity: navOpen ? 1 : 0 }}
-            ref={Link5}
-            href={"/admin/blacklist"}
-          >
-            الحظر
           </Link>
         </li>
       </div>

@@ -7,7 +7,8 @@ import style from "@/css/route/login.module.css";
 import LockIcon from "@/assets/login_icon/lock.js";
 import EyeCrossedIcon from "@/assets/login_icon/eyecrossed.js";
 import EyeOpned from "@/assets/login_icon/eyeOpen.js";
-import Loading from "@/components/Loding";
+import Loding from "@/components/Loding";
+import { SERVER_IP } from "@/constant";
 
 function AdminLogin() {
   const loginData = useRef({
@@ -44,7 +45,7 @@ function AdminLogin() {
 
     try {
       setLoading(true);
-      const req = await fetch("http://127.0.0.1:8000/login", {
+      const req = await fetch(`${SERVER_IP}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,10 +58,14 @@ function AdminLogin() {
         localStorage.setItem("isAuth", "yes");
         route.push("/admin");
       }
-    } catch (err) {
-      setLoginError(true);
       setTimeout(() => {
         setLoading(false);
+        setLoginError(true);
+      }, 1000);
+    } catch (err) {
+      setTimeout(() => {
+        setLoading(false);
+        setLoginError(true);
       }, 1000);
     }
   }
@@ -77,7 +82,7 @@ function AdminLogin() {
   if (pageLoading) {
     return (
       <section className={style.wraper}>
-        <Loading size="100px" />
+        <Loding border="8" size="100px" />
       </section>
     );
   }
@@ -118,7 +123,11 @@ function AdminLogin() {
               }}
               onClick={() => setshowpassword((prv) => !prv)}
             >
-              {showpassword ? <EyeCrossedIcon /> : <EyeOpned />}
+              {showpassword ? (
+                <EyeCrossedIcon size={"15px"} color={"white"} />
+              ) : (
+                <EyeOpned size={"15px"} color={"white"} />
+              )}
             </span>
             <input
               tabIndex={2}
@@ -138,15 +147,13 @@ function AdminLogin() {
             />
             <p className={style.password}>كلمة السر</p>
             <div className={style.inp_btm}>
-              <Link href={"/"}>نسيت كلمة السر</Link>
-
               <button
                 disabled={loading}
                 tabIndex={3}
                 type="submit"
                 onClick={Login}
               >
-                {loading ? <Loading size="30px" /> : "دخول"}
+                {loading ? <Loding border="5" size="30px" /> : "دخول"}
               </button>
             </div>
           </div>

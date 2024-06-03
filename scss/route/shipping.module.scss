@@ -32,6 +32,7 @@
           backdrop-filter: blur(10px);
           th {
             text-align: right;
+            font-weight: 400;
             // border: 1px solid red;
             padding: 10px 0px;
 
@@ -53,7 +54,7 @@
             padding: 10px 0px;
             &:nth-child(1) {
               padding-right: 20px;
-              // border-left: 0.5px solid rgb(65, 75, 116);
+              font-weight: 200;
             }
 
             input[type="text"] {
@@ -67,8 +68,10 @@
               background-color: rgba(255, 255, 255, 0.238);
             }
             input[type="checkbox"] {
-              accent-color: rgb(119, 175, 36);
-              background-color: rgb(205, 205, 205);
+              accent-color: base.$accent;
+              width: 15px;
+              height: 15px;
+              // background-color: rgb(205, 205, 205);
             }
           }
         }
@@ -81,7 +84,6 @@
     align-items: center;
     width: 100px;
     height: 50px;
-    border: 1px solid red;
     color: base.$textColor;
     outline: none;
     gap: 10px;
@@ -93,12 +95,10 @@
     cursor: pointer;
     top: 20%;
     right: 5%;
-    background-color: rgb(64, 106, 64);
-    svg {
-      fill: white;
-    }
+    background-color: base.$accent;
+
     &:hover {
-      background-color: rgb(119, 175, 36);
+      background-color: base.$b-100;
     }
   }
 }

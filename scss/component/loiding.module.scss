@@ -1,9 +1,7 @@
+@use "../base";
 .loading {
-  width: 50px;
-  border-radius: 50%;
-  aspect-ratio: 1;
-  border: 8px solid whitesmoke;
-  border-top-color: rgb(172, 172, 172);
+  border-top-color: base.$accent !important;
+
   animation: loading 1s ease infinite;
 }
 

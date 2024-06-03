@@ -1,9 +1,5 @@
 .loading {
-  width: 50px;
-  border-radius: 50%;
-  aspect-ratio: 1;
-  border: 8px solid whitesmoke;
-  border-top-color: rgb(172, 172, 172);
+  border-top-color: #7469b6 !important;
   animation: loading 1s ease infinite;
 }
 

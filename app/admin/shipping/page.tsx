@@ -48,7 +48,7 @@ function ShippingPage() {
   if (loading) {
     return (
       <section className={style.wraper}>
-        <Loding size="30" />
+        <Loding border="10" size="100px" />
       </section>
     );
   }
@@ -124,7 +124,6 @@ function ShippingPage() {
                     title="إزالة أو تفعيل الشحن للولاية"
                     onChange={() =>
                       setwilaya((prevWil) => {
-                        // if (!prevWil) return prevWil;
                         const updatedArray = prevWil?.map((prvit) =>
                           item.id === prvit.id
                             ? { ...prvit, active: !prvit.active }
@@ -142,7 +141,7 @@ function ShippingPage() {
         </table>
       </div>
       <div onClick={updateShippingCost} className={style.save_button}>
-        <SaveIcon />
+        <SaveIcon color={"white"} size={"15px"} />
         حفظ
       </div>
     </section>

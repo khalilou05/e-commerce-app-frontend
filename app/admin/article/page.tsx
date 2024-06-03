@@ -1,25 +1,45 @@
-"use client";
+import { UIAllarticle, UIArticle, getAllArticle } from "@/api/ArticleApi";
 import style from "@/css/route/manage_article.module.css";
-import { useState } from "react";
+import { SERVER_IP } from "@/constant";
+async function ArticleManager() {
+  const article: UIAllarticle[] | null = await getAllArticle();
 
-function ArticleManager() {
-  const [loading, setLoading] = useState(false);
-  const [article, setArticle] = useState(null);
-
-  async function getAdminArticle() {
-    try {
-      setLoading(true);
-      const req = await fetch("http://127.0.0.1:8000/login", {});
-      if (req.status == 200) {
-        return;
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  if (article == null) return <section>no article</section>;
   return (
     <section className={style.wraper}>
-      <section className={style.main_section}>khalil</section>
+      <section className={style.main_section}>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>السعر</th>
+              <th>المخزون</th>
+              <th>التوصيل</th>
+              <th>تاريخ الإضافة</th>
+            </tr>
+          </thead>
+          {article.map((art) => (
+            <tbody>
+              <tr>
+                <td>
+                  <img
+                    width={100}
+                    height={100}
+                    src={`${SERVER_IP}/static/${art.img_url}`}
+                    style={{
+                      objectFit: "cover",
+                    }}
+                  />
+                </td>
+                <td>{art.price}</td>
+                <td>{art.quantity}</td>
+                <td>{art.free_shipping}</td>
+                <td>{art.published}</td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
+      </section>
     </section>
   );
 }

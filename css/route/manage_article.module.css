@@ -8,5 +8,16 @@
 .wraper .main_section {
   width: 80%;
   height: 60%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
   border: 1px solid red;
+}
+.wraper .main_section .article_wraper {
+  display: flex;
+  width: 100%;
+}
+.wraper .main_section .article_wraper div {
+  height: 100px;
+  width: 100%;
 }

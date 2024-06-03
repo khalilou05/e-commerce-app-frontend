@@ -7,7 +7,7 @@
   align-items: center;
 
   .article_wraper {
-    width: 70%;
+    width: 80%;
     height: 80%;
     background-color: base.$sidebar_bgColor;
     display: flex;
@@ -18,25 +18,17 @@
       width: 40%;
       height: 100%;
       display: block;
-      overflow: hidden;
 
       .order_wraper {
         display: flex;
         flex-direction: column;
-
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: 100%;
+        height: 50%;
+        border: 1px solid red;
         &__hide {
           display: none;
-        }
-
-        & > * {
-          width: 80%;
-        }
-        select {
-          width: 80%;
-          text-align: center;
-          font-size: large;
         }
       }
       .article_info_section {
@@ -45,7 +37,7 @@
       }
     }
     .img_wraper {
-      width: 500px;
+      width: 70%;
       height: auto;
       overflow: hidden;
       display: flex;

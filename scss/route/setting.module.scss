@@ -1,4 +1,149 @@
+@use "../base";
+
 .wraper {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .iner_wraper {
+    font-family: base.$font;
+
+    position: relative;
+    width: 40%;
+    height: 60%;
+    border-radius: 20px;
+    background-color: base.$sidebar_bgColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .head {
+      display: flex;
+
+      position: absolute;
+      width: 80%;
+      justify-content: space-evenly;
+      top: 10px;
+      h1 {
+        font-size: 20px;
+      }
+    }
+    .input_group {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: flex-end;
+      width: 60%;
+      height: 90%;
+
+      .EyeIcon {
+        position: absolute;
+        top: 50%;
+
+        right: 85%;
+        span {
+          cursor: pointer;
+        }
+      }
+
+      input {
+        width: 100%;
+        height: 45px;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 10px;
+        outline: none;
+        color: white;
+        padding: 8px 20px;
+        font-weight: 200;
+        letter-spacing: 1.5px;
+
+        &:nth-of-type(1) {
+          &:valid,
+          &:focus {
+            + label {
+              &:nth-of-type(1) {
+                top: 23%;
+                opacity: 1;
+              }
+            }
+          }
+        }
+        &:nth-of-type(2) {
+          &:valid,
+          &:focus {
+            + label {
+              &:nth-of-type(2) {
+                top: 43%;
+                opacity: 1;
+              }
+            }
+          }
+        }
+
+        &:nth-of-type(3) {
+          &:focus,
+          &:valid {
+            + label {
+              &:nth-of-type(3) {
+                top: 64%;
+                opacity: 1;
+
+                // background-color: red;
+              }
+            }
+          }
+        }
+      }
+      label {
+        background-color: base.$sidebar_bgColor;
+        padding: 0px 5px;
+        font-size: small;
+        position: absolute;
+        &:nth-of-type(1) {
+          top: 29%;
+          right: 5%;
+          transition: all 160ms;
+          opacity: 0.5;
+        }
+        &:nth-of-type(2) {
+          top: 50%;
+          right: 5%;
+          transition: all 160ms;
+          opacity: 0.5;
+        }
+        &:nth-of-type(3) {
+          top: 70%;
+          right: 5%;
+          transition: all 160ms;
+          opacity: 0.5;
+        }
+      }
+
+      button {
+        align-self: flex-end;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        outline: none;
+        border: none;
+        background-color: base.$accent;
+        font-family: base.$font;
+        color: base.$textColor;
+        border-radius: 10px;
+        width: 6rem;
+        height: 3rem;
+        cursor: pointer;
+        &:hover {
+          background-color: base.$b-100;
+        }
+      }
+    }
+  }
 }

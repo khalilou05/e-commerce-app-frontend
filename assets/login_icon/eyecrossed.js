@@ -1,10 +1,10 @@
 import * as React from "react";
-const SvgComponent = () => (
+const SvgComponent = ({ size, color }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="15px"
-    height="15px"
-    fill="white"
+    width={size}
+    height={size}
+    fill={color}
     data-name="Layer 1"
     viewBox="0 0 24 24"
   >

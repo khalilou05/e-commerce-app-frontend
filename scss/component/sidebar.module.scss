@@ -1,6 +1,7 @@
 @use "../base";
 
 .wraper {
+  font-family: base.$font;
   height: 100%;
   width: 50px;
   display: flex;

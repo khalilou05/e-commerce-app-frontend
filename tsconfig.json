@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/ImageSlider.tsx"
+    "components/ImageSlider.tsx",
+    "constant.js"
   ],
   "exclude": ["node_modules"]
 }

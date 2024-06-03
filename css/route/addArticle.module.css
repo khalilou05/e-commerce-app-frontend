@@ -1,76 +1,245 @@
 .wraper {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.wraper .card {
+  width: 80%;
+  height: 80%;
+  background-color: rgb(38, 37, 43);
+  display: flex;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.wraper .card .done {
   width: 100%;
   height: 100%;
-}
-.wraper .main_wraper {
-  width: 80%;
-  height: 60%;
-  border: 1px solid rgb(246, 255, 0);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
-.wraper .main_wraper .image__wrpaer {
-  width: 50%;
+.wraper .card .done button {
+  outline: none;
+  border: none;
+  background-color: #7469b6;
+  color: whitesmoke;
+  padding: 15px;
+  width: 10%;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: medium;
+  cursor: pointer;
+}
+.wraper .card .right_sec {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
   height: 100%;
+}
+.wraper .card .right_sec .input_group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 80%;
+}
+.wraper .card .right_sec .input_group .price_qty {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.wraper .card .right_sec .input_group .price_qty label {
+  position: absolute;
+  padding: 0px 5px;
+  opacity: 0.5;
+}
+.wraper .card .right_sec .input_group .price_qty label:nth-of-type(1) {
+  top: 10%;
+  right: 5%;
+}
+.wraper .card .right_sec .input_group .price_qty label:nth-of-type(2) {
+  top: 10%;
+  right: 60%;
+}
+.wraper .card .right_sec .input_group .price_qty input {
+  width: 45%;
+}
+.wraper .card .right_sec .input_group .price_qty input:nth-of-type(1) {
+  width: 50%;
+}
+.wraper .card .right_sec .input_group .price_qty input:nth-of-type(1):focus + label:nth-of-type(1), .wraper .card .right_sec .input_group .price_qty input:nth-of-type(1):valid + label:nth-of-type(1) {
+  top: -25%;
+  opacity: 1;
+  font-size: small;
+}
+.wraper .card .right_sec .input_group .price_qty input:nth-of-type(2):focus + label:nth-of-type(2), .wraper .card .right_sec .input_group .price_qty input:nth-of-type(2):valid + label:nth-of-type(2) {
+  top: -25%;
+  opacity: 1;
+  font-size: small;
+}
+.wraper .card .right_sec .input_group .ref_shipping {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  text-wrap: nowrap;
+}
+.wraper .card .right_sec .input_group .ref_shipping label {
+  position: absolute;
+}
+.wraper .card .right_sec .input_group .ref_shipping input[type=text] {
+  width: 50%;
+}
+.wraper .card .right_sec .input_group .ref_shipping input[type=text]:focus + label, .wraper .card .right_sec .input_group .ref_shipping input[type=text]:valid + label {
+  opacity: 1;
+  top: -20%;
+  right: 5%;
+  font-size: small;
+}
+.wraper .card .right_sec .input_group .ref_shipping .shipping {
+  background-color: rgb(38, 37, 43);
+  border-radius: 10px;
+  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgb(251, 0, 255);
-}
-.wraper .main_wraper .image__wrpaer label {
-  border-radius: 8px;
-  cursor: pointer;
   position: relative;
 }
-.wraper .main_wraper .image__wrpaer label:hover {
-  border: 1px solid white;
-  background-color: lightyellow;
+.wraper .card .right_sec .input_group .ref_shipping .shipping label {
+  position: static;
 }
-.wraper .main_wraper .image__wrpaer label svg {
-  color: red;
+.wraper .card .right_sec .input_group .ref_shipping .shipping input[type=checkbox] {
+  accent-color: #7469b6;
+  width: 15px;
+  height: 15px;
 }
-.wraper .main_wraper .image__wrpaer label .plus_icon {
-  color: black;
+.wraper .card .right_sec .input_group .ref_shipping .shipping input[type=checkbox]:checked + label {
+  opacity: 1;
+}
+.wraper .card .right_sec .input_group label {
+  padding: 0px 5px;
+  margin: 0;
   position: absolute;
-  height: 20px;
-  width: 20px;
-  top: 65%;
-  right: 5px;
-  text-align: center;
-  border-radius: 20px;
-  background-color: rgb(20, 169, 62);
+  background-color: rgb(38, 37, 43);
+  pointer-events: none;
+  transition: all 160ms;
+  opacity: 0.5;
 }
-.wraper .main_wraper .image__wrpaer input {
-  display: none;
+.wraper .card .right_sec .input_group label:nth-of-type(1) {
+  top: 1%;
+  right: 5%;
 }
-.wraper .main_wraper .info__wraper {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
+.wraper .card .right_sec .input_group label:nth-of-type(2) {
+  top: 46%;
+  right: 5%;
 }
-.wraper .main_wraper .info__wraper input[type=text] {
+.wraper .card .right_sec .input_group input {
+  padding-right: 5%;
+  padding-top: 5px;
+  width: 100%;
   height: 45px;
-  width: 80%;
-  border: 1px solid white;
   background-color: transparent;
+  border: 0.9px solid white;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  font-weight: 200;
+  letter-spacing: 1.5px;
 }
-.wraper .main_wraper .info__wraper button {
-  width: 80;
+.wraper .card .right_sec .input_group > input:is(:focus, :valid) + label {
+  top: -3%;
+  opacity: 1;
 }
-.wraper .main_wraper .info__wraper textarea {
-  height: 50%;
-  width: 80%;
+.wraper .card .right_sec .input_group textarea {
+  width: 100%;
+  padding: 5%;
+  height: 40%;
   resize: none;
   background-color: transparent;
+  border: 0.9px solid white;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  font-weight: 200;
 }
-.wraper .main_wraper .info__wraper .price_qty_wraper {
+.wraper .card .right_sec .input_group textarea:focus + label:last-of-type, .wraper .card .right_sec .input_group textarea:valid + label:last-of-type {
+  top: 42%;
+  opacity: 1;
+}
+.wraper .card .right_sec .input_group button {
+  align-self: flex-end;
+  outline: none;
+  border: none;
+  background-color: #7469b6;
+  color: whitesmoke;
+  padding: 15px;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: medium;
+  cursor: pointer;
+}
+.wraper .card .right_sec .input_group button:hover {
+  background-color: #6b60a2;
+}
+.wraper .card .left_sec {
+  width: 60%;
+  height: 100%;
   display: flex;
-  gap: 10px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
 }
-.wraper .main_wraper .info__wraper .price_qty_wraper input {
-  width: 25%;
-  background-color: orange;
+.wraper .card .left_sec input {
+  display: none;
+}
+.wraper .card .left_sec svg {
+  opacity: 0.01;
+  position: absolute;
+  z-index: 1;
+}
+.wraper .card .left_sec span {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(117, 105, 182, 0.6196078431);
+  display: flex;
+  border-radius: 10px;
+  z-index: 2;
+}
+.wraper .card .left_sec span:hover {
+  border: 0.8px solid white;
+}
+.wraper .card .left_sec span label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.wraper .card .left_sec span label svg {
+  position: relative;
+  opacity: 1;
+  top: 10px;
+  width: 100%;
+}
+.wraper .card .left_sec span label p {
+  text-align: center;
 }
