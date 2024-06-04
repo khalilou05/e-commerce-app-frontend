@@ -4,6 +4,7 @@ import Loding from "@/components/Loding";
 import style from "@/css/route/shipping.module.css";
 import SaveIcon from "@/assets/icons/save_icon.js";
 import ErrorIcon from "@/assets/icons/error.js";
+import { SERVER_IP } from "@/constant";
 type wilayaData = {
   id: number;
   wilaya: string;
@@ -18,7 +19,7 @@ function ShippingPage() {
   const [error, seterror] = useState(false);
 
   async function updateShippingCost() {
-    const res = await fetch("http://127.0.0.1:8000/shipping/update", {
+    const res = await fetch(`${SERVER_IP}/shipping/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +31,7 @@ function ShippingPage() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/shipping");
+        const res = await fetch(`${SERVER_IP}/shipping`);
         if (res.ok) {
           const data = await res.json();
           setwilaya(data);

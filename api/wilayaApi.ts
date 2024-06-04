@@ -30,7 +30,7 @@ export async function getAllWilaya(): Promise<wilayaData[] | null> {
 }
 
 export async function getBaladiya(): Promise<baladiya[] | null> {
-  const baladiya = fetch("/algeria_cities3.json");
+  const baladiya = fetch(`${baseUrl}/algeria_cities3.json`);
   const data = (await baladiya).json();
   return data;
 }
