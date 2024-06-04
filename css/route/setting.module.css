@@ -39,8 +39,8 @@
 }
 .wraper .iner_wraper .input_group .EyeIcon {
   position: absolute;
-  top: 50%;
-  right: 85%;
+  top: 55%;
+  right: 89%;
 }
 .wraper .iner_wraper .input_group .EyeIcon span {
   cursor: pointer;
@@ -58,15 +58,15 @@
   letter-spacing: 1.5px;
 }
 .wraper .iner_wraper .input_group input:nth-of-type(1):valid + label:nth-of-type(1), .wraper .iner_wraper .input_group input:nth-of-type(1):focus + label:nth-of-type(1) {
-  top: 23%;
+  top: 30%;
   opacity: 1;
 }
 .wraper .iner_wraper .input_group input:nth-of-type(2):valid + label:nth-of-type(2), .wraper .iner_wraper .input_group input:nth-of-type(2):focus + label:nth-of-type(2) {
-  top: 43%;
+  top: 49%;
   opacity: 1;
 }
 .wraper .iner_wraper .input_group input:nth-of-type(3):focus + label:nth-of-type(3), .wraper .iner_wraper .input_group input:nth-of-type(3):valid + label:nth-of-type(3) {
-  top: 64%;
+  top: 67%;
   opacity: 1;
 }
 .wraper .iner_wraper .input_group label {
@@ -76,19 +76,19 @@
   position: absolute;
 }
 .wraper .iner_wraper .input_group label:nth-of-type(1) {
-  top: 29%;
+  top: 36%;
   right: 5%;
   transition: all 160ms;
   opacity: 0.5;
 }
 .wraper .iner_wraper .input_group label:nth-of-type(2) {
-  top: 50%;
+  top: 54%;
   right: 5%;
   transition: all 160ms;
   opacity: 0.5;
 }
 .wraper .iner_wraper .input_group label:nth-of-type(3) {
-  top: 70%;
+  top: 73%;
   right: 5%;
   transition: all 160ms;
   opacity: 0.5;

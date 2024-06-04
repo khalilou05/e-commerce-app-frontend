@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import "../css/global.css";
+import "@/css/global.css";
 
 export const metadata: Metadata = {
   title: "Home",

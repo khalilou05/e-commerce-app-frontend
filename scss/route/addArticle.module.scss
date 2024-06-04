@@ -67,8 +67,10 @@
         width: 80%;
         height: 80%;
         .price_qty {
+          width: 100%;
           position: relative;
           display: flex;
+          align-self: start;
           justify-content: space-between;
 
           & label {
@@ -122,7 +124,7 @@
           width: 100%;
           position: relative;
           display: flex;
-          justify-content: center;
+
           gap: 5%;
           text-wrap: nowrap;
           label {
