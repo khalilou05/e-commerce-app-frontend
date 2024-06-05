@@ -1,6 +1,5 @@
 import "@/css/route/singArticle.css";
-import { getArticleById, UIArticle } from "@/api/ArticleApi";
-import { wilayaData } from "@/api/wilayaApi";
+import { getArticleById } from "@/api/ArticleApi";
 import { getAllWilaya } from "@/api/wilayaApi";
 import ImageSlider from "@/components/ImageSlider";
 import OrderArtComp from "@/components/orderArtComp";

@@ -1,4 +1,4 @@
-import { UIAllarticle, UIArticle, getAllArticle } from "@/api/ArticleApi";
+import { UIAllarticle, getAllArticle } from "@/api/ArticleApi";
 import style from "@/css/route/manage_article.module.css";
 import { SERVER_IP } from "@/constant";
 async function ArticleManager() {
