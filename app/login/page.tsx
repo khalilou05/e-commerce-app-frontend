@@ -8,7 +8,7 @@ import LockIcon from "@/assets/login_icon/lock.js";
 import EyeCrossedIcon from "@/assets/login_icon/eyecrossed.js";
 import EyeOpned from "@/assets/login_icon/eyeOpen.js";
 import Loding from "@/components/Loding";
-import { SERVER_IP } from "@/constant";
+import { SERVER_IP } from "../../settings.js";
 
 function AdminLogin() {
   const loginData = useRef({

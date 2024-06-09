@@ -7,7 +7,6 @@ import { useRef, useState } from "react";
 import { createArticle } from "@/api/ArticleApi";
 import ErrorIcon from "@/assets/icons/error.js";
 import DoneIcon from "@/assets/icons/done";
-import TrashIcon from "@/assets/icons/trash";
 
 import ImageSlider from "@/components/ImageSlider";
 
@@ -43,7 +42,7 @@ export default function AddArticle() {
     }
     try {
       const response = await createArticle(data);
-      if (response.status == 201) {
+      if (response && response.status == 201) {
         setstatus("done");
       }
     } catch (err) {

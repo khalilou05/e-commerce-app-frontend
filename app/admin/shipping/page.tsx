@@ -4,7 +4,7 @@ import Loding from "@/components/Loding";
 import style from "@/css/route/shipping.module.css";
 import SaveIcon from "@/assets/icons/save_icon.js";
 import ErrorIcon from "@/assets/icons/error.js";
-import { SERVER_IP } from "@/constant";
+import { SERVER_IP } from "../../../settings.js";
 type wilayaData = {
   id: number;
   wilaya: string;

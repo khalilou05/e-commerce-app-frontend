@@ -1,8 +1,8 @@
 import { UIAllarticle, getAllArticle } from "@/api/ArticleApi";
 import style from "@/css/route/manage_article.module.css";
-import { SERVER_IP } from "@/constant";
+import { SERVER_IP } from "../../../settings.js";
 async function ArticleManager() {
-  const article: UIAllarticle[] | null = await getAllArticle();
+  const article: UIAllarticle[] | undefined = await getAllArticle();
 
   if (article == null) return <section>no article</section>;
   return (
