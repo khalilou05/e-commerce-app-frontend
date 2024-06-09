@@ -30,7 +30,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/ImageSlider.tsx",
-    "constant.js"
+    "settings.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-import { SERVER_IP } from "@/constant";
+import { SERVER_IP, DEV_MODE } from "../settings.js";
 const baseUrl = SERVER_IP;
 
 export type UIArticle = {
@@ -19,21 +19,38 @@ export type UIAllarticle = {
 };
 
 // ! ---------- GET ALL ARTICLE ------------
-export const getAllArticle = async (): Promise<UIAllarticle[] | null> => {
-  const req = await fetch(`${baseUrl}/`, { cache: "no-store" });
-  if (req.status === 200) return req.json();
-  return null;
+export const getAllArticle = async (): Promise<UIAllarticle[] | undefined> => {
+  if (DEV_MODE) return;
+  try {
+    const req = await fetch(`${baseUrl}/`, { cache: "no-store" });
+    if (req.status === 200) {
+      return req.json();
+    }
+    return undefined;
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 // ! ---------- GET ARTICLE BY ID ------------
-export const getArticleById = async (id: string): Promise<UIArticle | null> => {
-  const req = await fetch(`${baseUrl}/article/${id}`, {});
-  if (req.status == 200) return req.json();
-  return null;
+export const getArticleById = async (
+  id: string
+): Promise<UIArticle | undefined> => {
+  if (DEV_MODE) return;
+
+  try {
+    const req = await fetch(`${baseUrl}/article/${id}`, {});
+    if (req.status == 200) return req.json();
+    return undefined;
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 // ! ---------- DELETE ARTICLE  ------------
 export const deleteArticle = async (id: number) => {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/article/${id}`, {
     method: "DELETE",
     headers: {},
@@ -44,6 +61,8 @@ export const deleteArticle = async (id: number) => {
 
 // ! ---------- CREATE ARTICLE  ------------
 export const createArticle = async (data: FormData) => {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/article/add`, {
     method: "POST",
 
@@ -54,6 +73,8 @@ export const createArticle = async (data: FormData) => {
 
 // ! ---------- UPDATE ARTICLE  ------------
 export const updateArticle = async (data: UIArticle, id: number) => {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/article/${id}`, {
     method: "PUT",
     headers: {},
@@ -65,6 +86,8 @@ export const updateArticle = async (data: UIArticle, id: number) => {
 
 // ! ---------- UPLOAD ARTICLE IMAGES  ------------
 export const uploadArticleImg = async (images: any, id: number) => {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/article/img`, {
     method: "POST",
     headers: {},

@@ -57,6 +57,16 @@ function ShippingPage() {
     return (
       <section className={style.wraper}>
         <ErrorIcon size={100} />
+        <p
+          style={{
+            color: "#A91D3A",
+            fontWeight: "bold",
+            position: "absolute",
+            top: "60%",
+          }}
+        >
+          الخادم لا يستجيب
+        </p>
       </section>
     );
   }

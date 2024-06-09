@@ -4,7 +4,7 @@ const SvgComponent = ({ size }) => (
     xmlns="http://www.w3.org/2000/svg"
     width={size}
     height={size}
-    fill="#A91D3A"
+    style={{ fill: "#A91D3A" }}
     viewBox="0 0 24 24"
   >
     <g data-name="01 align center">

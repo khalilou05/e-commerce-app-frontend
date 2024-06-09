@@ -1,37 +1,61 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import style from "@/css/component/imageSlider.module.css";
+import TrashIcon from "@/assets/icons/trash";
+
+type propType = {
+  imageUrlsList: string[] | undefined;
+  setImageUrlList?: Dispatch<SetStateAction<string[]>>;
+  isAdmin: boolean;
+};
+
 export default function ImageSlider({
-  imgUrl,
-}: {
-  imgUrl: string[] | undefined;
-}) {
+  imageUrlsList,
+  setImageUrlList,
+  isAdmin,
+}: propType) {
   const [imgIndex, setImgIndex] = useState(0);
   const btnSub = useRef<HTMLElement | null>(null);
   const imgBox = useRef<HTMLElement | null>(null);
 
   function goNext() {
-    if (imgUrl) {
-      setImgIndex((prv) => (prv === imgUrl.length - 1 ? 0 : prv + 1));
+    if (imageUrlsList) {
+      setImgIndex((prv) => (prv === imageUrlsList.length - 1 ? 0 : prv + 1));
     }
   }
   function goBack() {
-    if (imgUrl) {
-      setImgIndex((prv) => (prv === 0 ? imgUrl.length - 1 : prv - 1));
+    if (imageUrlsList) {
+      setImgIndex((prv) => (prv === 0 ? imageUrlsList.length - 1 : prv - 1));
+    }
+  }
+
+  function handleImageDelete() {
+    if (setImageUrlList) {
+      const newImages = imageUrlsList?.filter(
+        (item, index) => index !== imgIndex
+      );
+      if (newImages) {
+        setImageUrlList(newImages);
+        setImgIndex((prv) => prv - 1);
+      }
     }
   }
 
   useEffect(() => {
     btnSub.current = document.getElementById("submit");
     imgBox.current = document.getElementById("imgbox");
-
-    console.log(imgBox.current);
   }, []);
 
   return (
     <section className={style.img_wraper}>
-      {imgUrl?.map((item, index) => {
+      {imageUrlsList?.map((item, index) => {
         const url = !item.startsWith("blob")
           ? `http://localhost:8000/static/${item}`
           : item;
@@ -46,28 +70,72 @@ export default function ImageSlider({
               translate: `${-100 * imgIndex}%`,
               transition: "all 200ms",
               userSelect: "none",
-
               objectFit: "cover",
             }}
           />
         );
       })}
-
-      <button
-        style={{ position: "absolute", right: "0", top: "0" }}
-        onClick={goNext}
-      >
-        ➜
-      </button>
-      <button
-        style={{ position: "absolute", left: "0", top: "0" }}
-        onClick={goBack}
-      >
-        ➜
-      </button>
+      {imageUrlsList && imageUrlsList?.length > 1 ? (
+        <>
+          <button
+            style={{ position: "absolute", right: "0", top: "0" }}
+            onClick={goNext}
+          >
+            ➜
+          </button>
+          <button
+            style={{
+              position: "absolute",
+              left: "0",
+              top: "0",
+              rotate: "180deg",
+            }}
+            onClick={goBack}
+          >
+            ➜
+          </button>
+        </>
+      ) : null}
+      {isAdmin ? (
+        <>
+          <button
+            style={{
+              position: "absolute",
+              justifyContent: "center",
+              alignItems: "center",
+              left: "20px",
+              bottom: "20px",
+              backgroundColor: "#A91D3A",
+              width: "30px",
+              height: "30px",
+              borderRadius: "50%",
+              display: "flex",
+            }}
+            onClick={handleImageDelete}
+          >
+            <TrashIcon />
+          </button>
+          <button
+            onClick={() => (setImageUrlList ? setImageUrlList([]) : null)}
+            style={{
+              backgroundColor: "#A91D3A",
+              width: "80px",
+              height: "30px",
+              fontSize: "small",
+              position: "absolute",
+              borderRadius: "5px",
+              right: "20px",
+              bottom: "20px",
+            }}
+          >
+            <TrashIcon />
+            &nbsp;&nbsp; إزالة الكل
+          </button>
+        </>
+      ) : null}
       <div className={style.indicator_section}>
-        {imgUrl && imgUrl.length < 12 ? (
-          imgUrl?.map((img, index) => (
+        {imageUrlsList && imageUrlsList.length < 12 ? (
+          imageUrlsList?.map((img, index) => (
             <span
               onClick={() => setImgIndex(index)}
               key={index}
@@ -84,7 +152,7 @@ export default function ImageSlider({
           ))
         ) : (
           <span>
-            {imgIndex + 1}/{imgUrl?.length}
+            {imgIndex + 1}/{imageUrlsList?.length}
           </span>
         )}
       </div>

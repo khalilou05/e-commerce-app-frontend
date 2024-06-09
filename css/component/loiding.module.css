@@ -1,5 +1,5 @@
 .loading {
-  border-top-color: #7469b6 !important;
+  border-top-color: var(--accent-color) !important;
   animation: loading 1s ease infinite;
 }
 

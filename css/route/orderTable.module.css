@@ -28,7 +28,7 @@
 .wraper .top_tab_wraper .action_button_group {
   display: flex;
   padding-right: 15px;
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   text-wrap: nowrap;
   width: 300px;
   gap: 10px;
@@ -128,7 +128,7 @@
 .wraper .table_wraper table thead tr th input[type=checkbox] {
   margin: 0;
   height: 15px;
-  accent-color: #7469b6;
+  accent-color: var(--accent-color);
   width: 15px;
 }
 .wraper .table_wraper table thead tr th:first-child {
@@ -184,7 +184,7 @@
   height: 45px;
 }
 .wraper .table_wraper table tbody tr:nth-child(even) {
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
 }
 .wraper .table_wraper table tbody tr td {
   margin: 0;
@@ -246,7 +246,7 @@
 }
 .wraper .table_wraper table tbody tr td input[type=checkbox] {
   margin: 0;
-  accent-color: #7469b6;
+  accent-color: var(--accent-color);
   height: 15px;
   width: 15px;
 }

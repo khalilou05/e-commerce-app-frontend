@@ -14,7 +14,7 @@
   justify-content: center;
   overflow: scroll;
   scrollbar-width: thin;
-  border: 0.3px solid #727087;
+  border: 0.3px solid var(--input-border-color);
 }
 .wraper .table__wraper table {
   height: 100%;
@@ -43,7 +43,7 @@
   width: 100%;
 }
 .wraper .table__wraper table tbody tr:nth-child(even) {
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
 }
 .wraper .table__wraper table tbody tr td {
   padding: 10px 0px;
@@ -63,7 +63,7 @@
   background-color: rgba(255, 255, 255, 0.238);
 }
 .wraper .table__wraper table tbody tr td input[type=checkbox] {
-  accent-color: #7469b6;
+  accent-color: var(--accent-color);
   width: 15px;
   height: 15px;
 }
@@ -73,7 +73,7 @@
   align-items: center;
   width: 100px;
   height: 50px;
-  color: whitesmoke;
+  color: var(--text-color);
   outline: none;
   gap: 10px;
   margin-top: 10px;
@@ -84,8 +84,8 @@
   cursor: pointer;
   top: 20%;
   right: 5%;
-  background-color: #7469b6;
+  background-color: var(--accent-color);
 }
 .wraper .save_button:hover {
-  background-color: #6b60a2;
+  background-color: var(--accent-color);
 }

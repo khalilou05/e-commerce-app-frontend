@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { createArticle } from "@/api/ArticleApi";
 import ErrorIcon from "@/assets/icons/error.js";
 import DoneIcon from "@/assets/icons/done";
+import TrashIcon from "@/assets/icons/trash";
 
 import ImageSlider from "@/components/ImageSlider";
 
@@ -170,12 +171,17 @@ export default function AddArticle() {
               id="desc"
             ></textarea>
             <label htmlFor="desc">وصف المنتج</label>
+
             <button onClick={uploadData}>إضافة</button>
           </div>
         </div>
         <div className={style.left_sec}>
           {imageUrlList.length ? (
-            <ImageSlider imgUrl={imageUrlList} />
+            <ImageSlider
+              imageUrlsList={imageUrlList}
+              setImageUrlList={setimageUrlList}
+              isAdmin={true}
+            />
           ) : (
             <>
               <ImageBG size={"500px"} color={"white"} />

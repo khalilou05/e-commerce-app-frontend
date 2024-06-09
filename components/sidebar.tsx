@@ -1,26 +1,35 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AddIcon from "@/assets/aside_icons/add.js";
 import BoxIcon from "@/assets/aside_icons/box.js";
 import TruckIcon from "@/assets/aside_icons/truck.js";
 import OrdersIcon from "@/assets/aside_icons/orders.js";
-import BanIcon from "@/assets/aside_icons/ban.js";
 import SettingIcon from "@/assets/aside_icons/setting.js";
 import LogoutIcon from "@/assets/aside_icons/logout.js";
+import MoonIcon from "@/assets/aside_icons/moon.js";
+import SunIcon from "@/assets/aside_icons/sun.js";
 import style from "@/css/component/sidebar.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 function Sidebar() {
   const [navOpen, setnavOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState("light");
+
   const Link1 = useRef<HTMLAnchorElement>(null);
   const Link2 = useRef<HTMLAnchorElement>(null);
   const Link3 = useRef<HTMLAnchorElement>(null);
   const Link4 = useRef<HTMLAnchorElement>(null);
-  const Link5 = useRef<HTMLAnchorElement>(null);
   const Link6 = useRef<HTMLAnchorElement>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    const bodyRef = document.getElementById("body");
+
+    bodyRef?.setAttribute("data-theme", darkMode);
+  }, [darkMode]);
+
   return (
     <nav
       dir="rtl"
@@ -46,8 +55,8 @@ function Sidebar() {
       </div>
       <div className={style.midle_section}>
         <li onClick={() => Link1.current?.click()}>
-          <div className={style.Icon}>
-            <AddIcon color={"white"} />
+          <div>
+            <AddIcon />
           </div>
           <Link
             style={{
@@ -60,8 +69,8 @@ function Sidebar() {
           </Link>
         </li>
         <li onClick={() => Link2.current?.click()}>
-          <div className={style.Icon}>
-            <BoxIcon color={"white"} />
+          <div>
+            <BoxIcon />
           </div>
 
           <Link
@@ -73,7 +82,7 @@ function Sidebar() {
           </Link>
         </li>
         <li onClick={() => Link3.current?.click()}>
-          <div className={style.Icon}>
+          <div>
             <TruckIcon />
           </div>
 
@@ -86,11 +95,10 @@ function Sidebar() {
           </Link>
         </li>
         <li onClick={() => Link4.current?.click()}>
-          <div className={style.Icon}>
+          <div>
             <OrdersIcon color={"white"} />
           </div>
           <Link
-            // onClick={() => setnavOpen((prv) => (prv ? false : prv))}
             style={{ opacity: navOpen ? 1 : 0 }}
             ref={Link4}
             href={"/admin/orders"}
@@ -100,8 +108,24 @@ function Sidebar() {
         </li>
       </div>
       <div className={style.bottom_section}>
+        <li
+          onClick={() =>
+            setDarkMode((prv) => (prv === "dark" ? "light" : "dark"))
+          }
+        >
+          <div>{darkMode == "dark" ? <SunIcon /> : <MoonIcon />}</div>
+          <p
+            style={{
+              opacity: navOpen ? 1 : 0,
+              textWrap: "nowrap",
+              userSelect: "none",
+            }}
+          >
+            {darkMode == "dark" ? "الوضع النهاري" : "الوضع الليلي"}
+          </p>
+        </li>
         <li onClick={() => Link6.current?.click()}>
-          <div className={style.Icon}>
+          <div>
             <SettingIcon color={"white"} />
           </div>
 
@@ -119,13 +143,14 @@ function Sidebar() {
             router.push("/login");
           }}
         >
-          <div className={style.Icon}>
-            <LogoutIcon color={"white"} />
+          <div>
+            <LogoutIcon />
           </div>
 
           <p
             style={{
               opacity: navOpen ? 1 : 0,
+              userSelect: "none",
             }}
           >
             الخروج

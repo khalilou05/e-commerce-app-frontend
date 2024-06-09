@@ -6,12 +6,11 @@
   align-items: center;
 }
 .wraper .iner_wraper {
-  font-family: "hellob1";
   position: relative;
   width: 40%;
   height: 60%;
   border-radius: 20px;
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,10 +48,10 @@
   width: 100%;
   height: 45px;
   background-color: transparent;
-  border: 1px solid white;
+  border: 1px solid var(--input-border-color);
   border-radius: 10px;
   outline: none;
-  color: white;
+  color: var(--text-color);
   padding: 8px 20px;
   font-weight: 200;
   letter-spacing: 1.5px;
@@ -70,7 +69,7 @@
   opacity: 1;
 }
 .wraper .iner_wraper .input_group label {
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   padding: 0px 5px;
   font-size: small;
   position: absolute;
@@ -78,19 +77,19 @@
 .wraper .iner_wraper .input_group label:nth-of-type(1) {
   top: 36%;
   right: 5%;
-  transition: all 160ms;
+  transition: top 160ms;
   opacity: 0.5;
 }
 .wraper .iner_wraper .input_group label:nth-of-type(2) {
   top: 54%;
   right: 5%;
-  transition: all 160ms;
+  transition: top 160ms;
   opacity: 0.5;
 }
 .wraper .iner_wraper .input_group label:nth-of-type(3) {
   top: 73%;
   right: 5%;
-  transition: all 160ms;
+  transition: top 160ms;
   opacity: 0.5;
 }
 .wraper .iner_wraper .input_group button {
@@ -101,14 +100,13 @@
   gap: 10px;
   outline: none;
   border: none;
-  background-color: #7469b6;
-  font-family: "hellob1";
-  color: whitesmoke;
+  background-color: var(--accent-color);
+  color: var(--btn-txt-color);
   border-radius: 10px;
   width: 6rem;
   height: 3rem;
   cursor: pointer;
 }
 .wraper .iner_wraper .input_group button:hover {
-  background-color: #6b60a2;
+  background-color: var(--accent-color);
 }

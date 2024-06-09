@@ -12,7 +12,7 @@ type orderTodb = {
   home_dilevery: boolean;
 };
 
-function OrderArtComp({ wilayas }: { wilayas: wilayaData[] | null }) {
+function OrderArtComp({ wilayas }: { wilayas: wilayaData[] | undefined }) {
   const orderData = useRef<orderTodb>();
 
   function handleCHange(field: keyof orderTodb, value: string | number) {

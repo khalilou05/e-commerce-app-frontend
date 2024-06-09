@@ -47,7 +47,7 @@ async function SingleArticle({ params }: id) {
           </section>
         </section>
         <section id="imgbox" className="img_wraper">
-          <ImageSlider imgUrl={article?.img_url} />
+          <ImageSlider isAdmin={false} imageUrlsList={article?.img_url} />
         </section>
       </section>
     </section>

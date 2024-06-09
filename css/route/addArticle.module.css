@@ -8,7 +8,7 @@
 .wraper .card {
   width: 80%;
   height: 80%;
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   display: flex;
   overflow: hidden;
   border-radius: 20px;
@@ -25,8 +25,8 @@
 .wraper .card .done button {
   outline: none;
   border: none;
-  background-color: #7469b6;
-  color: whitesmoke;
+  background-color: var(--accent-color);
+  color: var(--text-color);
   padding: 15px;
   width: 10%;
   border-radius: 5px;
@@ -71,11 +71,11 @@
   opacity: 0.5;
 }
 .wraper .card .right_sec .input_group .price_qty label:nth-of-type(1) {
-  top: 10%;
+  top: 16%;
   right: 5%;
 }
 .wraper .card .right_sec .input_group .price_qty label:nth-of-type(2) {
-  top: 10%;
+  top: 16%;
   right: 60%;
 }
 .wraper .card .right_sec .input_group .price_qty input {
@@ -98,11 +98,13 @@
   width: 100%;
   position: relative;
   display: flex;
+  justify-content: space-between;
   gap: 5%;
   text-wrap: nowrap;
 }
-.wraper .card .right_sec .input_group .ref_shipping label {
+.wraper .card .right_sec .input_group .ref_shipping label:nth-of-type(1) {
   position: absolute;
+  top: 20%;
 }
 .wraper .card .right_sec .input_group .ref_shipping input[type=text] {
   width: 50%;
@@ -114,7 +116,7 @@
   font-size: small;
 }
 .wraper .card .right_sec .input_group .ref_shipping .shipping {
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   border-radius: 10px;
   width: 40%;
   display: flex;
@@ -126,7 +128,7 @@
   position: static;
 }
 .wraper .card .right_sec .input_group .ref_shipping .shipping input[type=checkbox] {
-  accent-color: #7469b6;
+  accent-color: var(--accent-color);
   width: 15px;
   height: 15px;
 }
@@ -137,13 +139,13 @@
   padding: 0px 5px;
   margin: 0;
   position: absolute;
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   pointer-events: none;
   transition: all 160ms;
   opacity: 0.5;
 }
 .wraper .card .right_sec .input_group label:nth-of-type(1) {
-  top: 1%;
+  top: 2%;
   right: 5%;
 }
 .wraper .card .right_sec .input_group label:nth-of-type(2) {
@@ -156,10 +158,10 @@
   width: 100%;
   height: 45px;
   background-color: transparent;
-  border: 0.9px solid white;
+  border: 0.9px solid var(--input-border-color);
   border-radius: 10px;
   outline: none;
-  color: white;
+  color: var(--text-color);
   font-weight: 200;
   letter-spacing: 1.5px;
 }
@@ -170,13 +172,14 @@
 .wraper .card .right_sec .input_group textarea {
   width: 100%;
   padding: 5%;
+  padding-top: 5%;
   height: 40%;
   resize: none;
   background-color: transparent;
-  border: 0.9px solid white;
+  border: 0.9px solid var(--input-border-color);
   border-radius: 10px;
   outline: none;
-  color: white;
+  color: var(--text-color);
   font-weight: 200;
 }
 .wraper .card .right_sec .input_group textarea:focus + label:last-of-type, .wraper .card .right_sec .input_group textarea:valid + label:last-of-type {
@@ -187,8 +190,8 @@
   align-self: flex-end;
   outline: none;
   border: none;
-  background-color: #7469b6;
-  color: whitesmoke;
+  background-color: var(--accent-color);
+  color: var(--text-color);
   padding: 15px;
   width: 100%;
   border-radius: 5px;
@@ -197,7 +200,7 @@
   cursor: pointer;
 }
 .wraper .card .right_sec .input_group button:hover {
-  background-color: #6b60a2;
+  background-color: var(--accent-color);
 }
 .wraper .card .left_sec {
   width: 60%;
@@ -207,24 +210,23 @@
   justify-content: center;
   align-items: center;
 }
+.wraper .card .left_sec > svg:nth-of-type(1) {
+  position: absolute;
+  opacity: 0.1;
+}
 .wraper .card .left_sec input {
   display: none;
-}
-.wraper .card .left_sec svg {
-  opacity: 0.01;
-  position: absolute;
-  z-index: 1;
 }
 .wraper .card .left_sec span {
   width: 100px;
   height: 100px;
-  background-color: rgba(117, 105, 182, 0.6196078431);
+  background-color: var(--accent-color);
   display: flex;
   border-radius: 10px;
   z-index: 2;
 }
 .wraper .card .left_sec span:hover {
-  border: 0.8px solid white;
+  background-color: var(--accent-color);
 }
 .wraper .card .left_sec span label {
   width: 100%;
@@ -237,7 +239,6 @@
 }
 .wraper .card .left_sec span label svg {
   position: relative;
-  opacity: 1;
   top: 10px;
   width: 100%;
 }

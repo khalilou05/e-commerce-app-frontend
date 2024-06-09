@@ -1,4 +1,4 @@
-import { SERVER_IP } from "@/constant";
+import { SERVER_IP, DEV_MODE } from "../settings.js";
 const baseUrl = SERVER_IP;
 const token = localStorage.getItem("token") || "";
 
@@ -8,7 +8,9 @@ type LoginData = {
 };
 
 // ! ---------- ADD TO BLACKLIST ------------
-export async function addToBlacklist<T>(): Promise<T> {
+export async function addToBlacklist<T>(): Promise<T | undefined> {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/blacklist`, {
     method: "POST",
     headers: {
@@ -21,6 +23,8 @@ export async function addToBlacklist<T>(): Promise<T> {
 
 // ! ---------- REMEOVE FROM BLACKLIST ------------
 export async function removeFrmBlacklist(phone_number: number) {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/blacklist`, {
     method: "DELETE",
     headers: {
@@ -34,6 +38,8 @@ export async function removeFrmBlacklist(phone_number: number) {
 
 // ! ---------- ADMIN LOGIN  ------------
 export async function adminLogin(loginData: LoginData) {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/blacklist`, {
     method: "POST",
     headers: {

@@ -1,6 +1,6 @@
 .wraper {
   width: 100%;
-  background-color: #212026;
+  background-color: var(--bg-color);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -8,7 +8,7 @@
 }
 .wraper .form {
   display: flex;
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   flex-direction: column;
   height: 60%;
   width: 40%;
@@ -27,9 +27,8 @@
   height: 60px;
 }
 .wraper .form .top h1 {
-  font-family: "hellob1";
   font-size: 48px;
-  color: white;
+  color: var(--text-color);
   font-weight: bolder;
   top: 0;
   margin: 0;
@@ -63,7 +62,6 @@
   width: 50%;
   flex-direction: column;
   gap: 40px;
-  font-family: "hellob1";
 }
 .wraper .form .main .input_container .eye_cross {
   position: absolute;
@@ -73,56 +71,53 @@
 }
 .wraper .form .main .input_container .inp_usr:focus + .username, .wraper .form .main .input_container .inp_usr:valid + .username {
   top: -12px;
-  color: white;
+  color: var(--text-color);
   opacity: 1;
 }
 .wraper .form .main .input_container .inp_pass:focus + .password, .wraper .form .main .input_container .inp_pass:valid + .password {
-  color: white;
+  color: var(--text-color);
   opacity: 1;
   top: 75px;
 }
 .wraper .form .main .input_container .username {
   position: absolute;
   padding: 0 5px;
-  font-family: "hellob1";
   font-size: small;
   top: 12px;
   right: 15px;
   pointer-events: none;
-  color: rgb(211, 211, 211);
-  background-color: rgb(38, 37, 43);
+  color: var(--text-color);
+  background-color: var(--side-bar-bgColor);
   transition: all 160ms;
   opacity: 0.5;
 }
 .wraper .form .main .input_container .password {
   position: absolute;
-  font-family: "hellob1";
   font-size: small;
   padding: 0 5px;
   pointer-events: none;
   top: 95px;
   right: 15px;
-  color: rgb(211, 211, 211);
+  color: var(--text-color);
   opacity: 0.5;
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   transition: all 160ms;
 }
 .wraper .form .main .input_container input {
   height: 45px;
   background-color: transparent !important;
-  border: 1px solid white;
+  border: 1px solid var(--input-border-color);
   border-radius: 10px;
   outline: none;
-  color: white;
+  color: var(--text-color);
   padding: 8px 20px;
   font-weight: 200;
   letter-spacing: 1.5px;
 }
 .wraper .form .main .input_container button {
   all: unset;
-  background-color: #7469b6;
-  font-family: "hellob1";
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--text-color);
   border-radius: 10px;
   width: 6rem;
   height: 3rem;
@@ -132,7 +127,7 @@
   cursor: pointer;
 }
 .wraper .form .main .input_container button:hover {
-  background-color: #6b60a2;
+  background-color: var(--accent-color);
 }
 .wraper .form .main .input_container .inp_btm {
   display: flex;
@@ -141,8 +136,7 @@
   align-items: center;
 }
 .wraper .form .main .input_container .inp_btm a {
-  font-family: "hellob1";
-  color: #7469b6;
+  color: var(--accent-color);
   text-decoration: none;
   font-size: small;
 }

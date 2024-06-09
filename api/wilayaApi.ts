@@ -1,4 +1,4 @@
-import { SERVER_IP } from "@/constant";
+import { SERVER_IP } from "../settings.js";
 const baseUrl = SERVER_IP;
 
 export type wilayaData = {
@@ -21,16 +21,21 @@ export type baladiya = {
   baladiya: baladiyaItem[];
 };
 
-export async function getAllWilaya(): Promise<wilayaData[] | null> {
-  const req = await fetch(`${baseUrl}/shipping/available`, {
-    cache: "no-cache",
-  });
-  if (req.ok) return await req.json();
-  return null;
+export async function getAllWilaya(): Promise<wilayaData[] | undefined> {
+  try {
+    const req = await fetch(`${baseUrl}/shipping/available`, {
+      cache: "no-cache",
+    });
+    if (req.status == 200) return await req.json();
+    return undefined;
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 export async function getBaladiya(): Promise<baladiya[] | null> {
-  const baladiya = fetch(`${baseUrl}/algeria_cities3.json`);
+  const baladiya = fetch(`/algeria_cities3.json`);
   const data = (await baladiya).json();
+
   return data;
 }

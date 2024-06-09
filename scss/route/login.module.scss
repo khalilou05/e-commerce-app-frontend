@@ -1,9 +1,7 @@
-@use "../base";
-
 .wraper {
   width: 100%;
   // border: 1px solid red;
-  background-color: base.$background;
+  background-color: var(--bg-color);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -11,7 +9,7 @@
 
   .form {
     display: flex;
-    background-color: base.$sidebar_bgColor;
+    background-color: var(--side-bar-bgColor);
     // border: 1px solid red;
 
     flex-direction: column;
@@ -31,9 +29,9 @@
       gap: 2rem;
       padding-top: 2rem;
       h1 {
-        font-family: base.$font;
+        // font-family: base.$font;
         font-size: 48px;
-        color: white;
+        color: var(--text-color);
         font-weight: bolder;
         top: 0;
         margin: 0;
@@ -71,7 +69,7 @@
         gap: 40px;
         // border: 1px solid red;
 
-        font-family: base.$font;
+        // font-family: base.$font;
 
         .eye_cross {
           position: absolute;
@@ -85,7 +83,7 @@
           &:valid {
             + .username {
               top: -12px;
-              color: white;
+              color: var(--text-color);
               opacity: 1;
             }
           }
@@ -94,7 +92,7 @@
           &:focus,
           &:valid {
             + .password {
-              color: white;
+              color: var(--text-color);
               opacity: 1;
               top: 75px;
             }
@@ -104,47 +102,47 @@
         .username {
           position: absolute;
           padding: 0 5px;
-          font-family: base.$font;
+          // font-family: base.$font;
           font-size: small;
 
           top: 12px;
           right: 15px;
           pointer-events: none;
-          color: rgb(211, 211, 211);
-          background-color: base.$sidebar_bgColor;
+          color: var(--text-color);
+          background-color: var(--side-bar-bgColor);
           transition: all 160ms;
           opacity: 0.5;
         }
         .password {
           position: absolute;
-          font-family: base.$font;
+          // font-family: base.$font;
           font-size: small;
           padding: 0 5px;
           pointer-events: none;
           top: 95px;
           right: 15px;
-          color: rgb(211, 211, 211);
+          color: var(--text-color);
           opacity: 0.5;
 
-          background-color: base.$sidebar_bgColor;
+          background-color: var(--side-bar-bgColor);
           transition: all 160ms;
         }
         input {
           height: 45px;
           background-color: transparent !important;
-          border: 1px solid white;
+          border: 1px solid var(--input-border-color);
           border-radius: 10px;
           outline: none;
-          color: white;
+          color: var(--text-color);
           padding: 8px 20px;
           font-weight: 200;
           letter-spacing: 1.5px;
         }
         button {
           all: unset;
-          background-color: base.$accent;
-          font-family: base.$font;
-          color: white;
+          background-color: var(--accent-color);
+          // font-family: base.$font;
+          color: var(--text-color);
           border-radius: 10px;
           width: 6rem;
           height: 3rem;
@@ -154,7 +152,7 @@
           cursor: pointer;
 
           &:hover {
-            background-color: base.$b-100;
+            background-color: var(--accent-color);
           }
         }
         .inp_btm {
@@ -163,8 +161,8 @@
           justify-content: space-between;
           align-items: center;
           a {
-            font-family: base.$font;
-            color: base.$accent;
+            // font-family: base.$font;
+            color: var(--accent-color);
             text-decoration: none;
             font-size: small;
           }

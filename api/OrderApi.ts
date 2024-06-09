@@ -1,4 +1,4 @@
-import { SERVER_IP } from "@/constant";
+import { SERVER_IP, DEV_MODE } from "../settings.js";
 const baseUrl = SERVER_IP;
 export type Order = {
   id: number;
@@ -17,13 +17,15 @@ export type Order = {
 };
 
 // ! ---------- GET ALL ORDERS ------------
-export async function getAllOrders(signal: any): Promise<Order[] | null> {
+export async function getAllOrders(signal: any): Promise<Order[] | undefined> {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/order`, {
     cache: "no-cache",
     signal: signal,
   });
   if (req.status == 200) return await req.json();
-  return null;
+  return undefined;
 }
 
 // ! ---------- CREATE AN ORDER ------------
@@ -31,7 +33,9 @@ export async function createOrder(
   data: Order,
   token: string,
   signal: any
-): Promise<Order | null> {
+): Promise<Order | undefined> {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/order`, {
     cache: "no-cache",
     body: JSON.stringify(data),
@@ -45,6 +49,8 @@ export async function createOrder(
 }
 // ! ---------- SET ORDER DELIVRED ------------
 export async function setOrderDelivred() {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/order/confirm`, {
     method: "POST",
     cache: "no-cache",
@@ -56,6 +62,8 @@ export async function removeOrder(
   token: string,
   signal: any
 ) {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/order/`, {
     method: "DELETE",
     headers: {
@@ -72,6 +80,8 @@ export async function addToBlackilist(
   token: string,
   signal: any
 ) {
+  if (DEV_MODE) return;
+
   const req = await fetch(`${baseUrl}/blacklist`, {
     method: "POST",
     headers: {

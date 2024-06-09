@@ -1,17 +1,37 @@
-@use "base";
-
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
+:root {
+  --input-border-color: black;
+  --text-color: black;
+  --icon-color: black;
+  --btn-txt-color: white;
+  --img-slider-btn-txt: white;
+  --img-slider-btn-icon-color: white;
+  --accent-color: blue;
+
+  [data-theme="dark"] {
+    --icon-color: white;
+    --text-color: white;
+    --bg-color: #212026;
+    --side-bar-bgColor: rgb(38, 37, 43);
+    --input-border-color: white;
+  }
+}
 body {
-  font-family: base.$font;
   margin: 0;
   padding: 0;
-  background-color: base.$background;
-  color: base.$textColor;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   display: flex;
   width: 100vw;
   height: 100vh;
+
+  transition: background-color 200ms ease;
+
+  svg {
+    fill: var(--icon-color);
+  }
 }

@@ -1,11 +1,10 @@
 .wraper {
-  font-family: "hellob1";
   height: 100%;
   width: 50px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  background-color: rgb(38, 37, 43);
+  background-color: var(--side-bar-bgColor);
   transition: width 300ms ease;
 }
 .wraper .top_section {
@@ -26,31 +25,31 @@
 .wraper .top_section .menuIcon .top_line {
   width: 100%;
   height: 3px;
-  background-color: white;
+  background-color: var(--text-color);
   border-radius: 100px;
-  transition: all 300ms ease;
+  transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
 }
 .wraper .top_section .menuIcon .top_line__close {
   width: 50%;
   height: 3px;
-  background-color: white;
+  background-color: var(--text-color);
   border-radius: 100px;
   transform: translate(4px, 2px);
   rotate: 45deg;
-  transition: all 300ms ease;
+  transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
 }
 .wraper .top_section .menuIcon .mid_line {
   width: 100%;
   height: 3px;
   border-radius: 100px;
-  background-color: white;
+  background-color: var(--text-color);
 }
 .wraper .top_section .menuIcon .last_line {
   width: 100%;
   height: 3px;
   border-radius: 100px;
-  background-color: white;
-  transition: all 300ms ease;
+  background-color: var(--text-color);
+  transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
 }
 .wraper .top_section .menuIcon .last_line__close {
   rotate: -45deg;
@@ -58,8 +57,8 @@
   height: 3px;
   border-radius: 100px;
   transform: translate(4px, -2px);
-  background-color: white;
-  transition: all 300ms ease;
+  background-color: var(--text-color);
+  transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
 }
 .wraper .midle_section {
   height: 100%;
@@ -83,9 +82,11 @@
 }
 .wraper .midle_section li a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
   transition: opacity 300ms ease;
   text-wrap: nowrap;
+  user-select: none;
+  pointer-events: none;
 }
 .wraper .midle_section li:hover {
   background-color: rgba(156, 156, 156, 0.284);
@@ -116,8 +117,10 @@
   background-color: rgba(156, 156, 156, 0.284);
 }
 .wraper .bottom_section li a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   text-wrap: nowrap;
+  user-select: none;
+  pointer-events: none;
   transition: opacity 300ms ease;
 }

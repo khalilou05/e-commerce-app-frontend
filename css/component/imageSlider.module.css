@@ -17,15 +17,15 @@
   border: none;
   background-color: transparent;
   font-size: 20px;
-  color: white;
+  color: var(--img-slider-btn-txt);
   cursor: pointer;
   opacity: 0;
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.217), transparent);
   height: 100%;
   transition: opacity 300ms;
 }
-.img_wraper button:nth-of-type(2) {
-  rotate: 180deg;
+.img_wraper button svg {
+  fill: var(--img-slider-btn-icon-color);
 }
 .img_wraper .indicator_section {
   width: 50px;

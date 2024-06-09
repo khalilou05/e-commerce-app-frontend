@@ -1,13 +1,10 @@
-@use "../base";
-
 .wraper {
-  font-family: base.$font;
   height: 100%;
   width: 50px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  background-color: base.$sidebar_bgColor;
+  background-color: var(--side-bar-bgColor);
   transition: width 300ms ease;
   .top_section {
     position: relative;
@@ -26,19 +23,19 @@
       .top_line {
         width: 100%;
         height: 3px;
-        background-color: white;
+        background-color: var(--text-color);
         border-radius: 100px;
-        transition: all 300ms ease;
+        transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
 
         &__close {
           width: 50%;
           height: 3px;
-          background-color: white;
+          background-color: var(--text-color);
           border-radius: 100px;
           transform: translate(4px, 2px);
 
           rotate: 45deg;
-          transition: all 300ms ease;
+          transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
         }
       }
       .mid_line {
@@ -46,14 +43,14 @@
         height: 3px;
         border-radius: 100px;
 
-        background-color: white;
+        background-color: var(--text-color);
       }
       .last_line {
         width: 100%;
         height: 3px;
         border-radius: 100px;
-        background-color: white;
-        transition: all 300ms ease;
+        background-color: var(--text-color);
+        transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
 
         &__close {
           rotate: -45deg;
@@ -61,8 +58,8 @@
           height: 3px;
           border-radius: 100px;
           transform: translate(4px, -2px);
-          background-color: white;
-          transition: all 300ms ease;
+          background-color: var(--text-color);
+          transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
         }
       }
     }
@@ -93,9 +90,11 @@
 
       a {
         text-decoration: none;
-        color: white;
+        color: var(--text-color);
         transition: opacity 300ms ease;
         text-wrap: nowrap;
+        user-select: none;
+        pointer-events: none;
       }
       &:hover {
         background-color: rgba(156, 156, 156, 0.284);
@@ -111,6 +110,7 @@
       align-items: center;
       list-style: none;
       gap: 10px;
+
       // border: 0.5px solid red;
       width: 80%;
       height: 45px;
@@ -127,9 +127,11 @@
         background-color: rgba(156, 156, 156, 0.284);
       }
       a {
-        color: white;
+        color: var(--text-color);
         text-decoration: none;
         text-wrap: nowrap;
+        user-select: none;
+        pointer-events: none;
         transition: opacity 300ms ease;
       }
     }
