@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .wraper {
   display: flex;
   flex-direction: column;
@@ -6,51 +7,58 @@
   width: 100%;
   height: 100%;
 }
-.wraper .empty_order_msg {
+.wraper .iner_wraper {
+  width: 95%;
+  height: 80%;
+}
+.wraper .iner_wraper .empty_order_msg {
   position: absolute;
   top: 50%;
   right: 50%;
 }
-.wraper .top_tab_wraper {
+.wraper .iner_wraper .top_bar_wraper {
   height: 20px;
   display: flex;
-  position: relative;
+  overflow: hidden;
   width: 100%;
   height: 50px;
-  background-color: #3d3d3d;
-  border: 1px solid red;
+  background-color: var(--side-bar-bgColor);
 }
-.wraper .top_tab_wraper .tab_button {
+.wraper .iner_wraper .top_bar_wraper .right_sec {
+  width: 50%;
   display: flex;
-  align-items: flex-end;
-  width: 100px;
 }
-.wraper .top_tab_wraper .action_button_group {
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group {
   display: flex;
-  padding-right: 15px;
   background-color: var(--side-bar-bgColor);
   text-wrap: nowrap;
-  width: 300px;
+  width: 400px;
   gap: 10px;
 }
-.wraper .top_tab_wraper .action_button_group span {
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group span {
   display: flex;
   border-radius: 5px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 120px;
 }
-.wraper .top_tab_wraper .action_button_group span p:first-child {
-  width: 20px;
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group span p:nth-of-type(1) {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
 }
-.wraper .top_tab_wraper .action_button_group .btn_wraper {
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   gap: 10px;
   margin-right: auto;
 }
-.wraper .top_tab_wraper .action_button_group .btn_wraper span {
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span {
   display: flex;
+  gap: 5px;
   cursor: pointer;
   justify-content: center;
   align-items: center;
@@ -58,57 +66,158 @@
   width: 50px;
   height: 30px;
 }
-.wraper .top_tab_wraper .action_button_group .btn_wraper span:first-child:hover {
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span:first-child {
+  border: 0.5px solid rgba(87, 157, 87, 0.73);
+  background-color: rgba(87, 157, 87, 0.2);
+}
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span:first-child:hover {
   background-color: rgba(87, 157, 87, 0.73);
 }
-.wraper .top_tab_wraper .action_button_group .btn_wraper span:nth-child(2):hover {
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span:nth-child(2) {
+  background-color: rgba(139, 139, 139, 0.2);
+  border: 0.5px solid rgba(139, 139, 139, 0.73);
+}
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span:nth-child(2):hover {
   background-color: rgba(139, 139, 139, 0.73);
 }
-.wraper .top_tab_wraper .action_button_group .btn_wraper span:nth-child(3):hover {
-  background-color: rgb(82, 3, 3);
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span:nth-child(3) {
+  background-color: rgba(211, 137, 10, 0.2);
+  border: 0.5px solid rgba(211, 137, 10, 0.73);
 }
-.wraper .top_tab_wraper .command_type {
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span:nth-child(3):hover {
+  background-color: rgba(226, 160, 5, 0.74);
+}
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span:nth-child(4) {
+  background-color: rgba(82, 3, 3, 0.318);
+  border: 0.5px solid rgb(164, 4, 4);
+}
+.wraper .iner_wraper .top_bar_wraper .right_sec .action_button_group .btn_wraper span:nth-child(4):hover {
+  background-color: rgba(171, 6, 6, 0.74);
+}
+.wraper .iner_wraper .top_bar_wraper .right_sec .refresh {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  gap: 5px;
+  margin-right: 10px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 0px 5px;
+  color: var(--text-color);
+  border: 0.5px solid gray;
+  cursor: pointer;
+}
+.wraper .iner_wraper .top_bar_wraper .right_sec .refresh:hover {
+  background-color: rgba(128, 128, 128, 0.309);
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec {
+  display: flex;
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .date_inpt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .date_inpt input[type=date] {
+  border-radius: 5px;
+  height: 35px;
+  width: 200px;
+  padding-left: 10px;
+  text-align: left;
+  background-color: var(--side-bar-bgColor);
+  border: 0.5px solid gray;
+  color: var(--text-color);
+  outline: none;
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .date_inpt input[type=date]::after {
   position: absolute;
-  flex-direction: column;
-  right: 40%;
-  overflow: hidden;
-  z-index: 5;
-  padding: 0;
-  margin: 0;
-  right: 300px;
-  width: 150px;
-  height: 50px;
-  transition: height 150ms;
+  content: "التاريخ";
+  color: var(--text-color);
+  right: 5%;
+  top: 30%;
 }
-.wraper .top_tab_wraper .command_type:hover {
-  height: 100px;
+.wraper .iner_wraper .top_bar_wraper .left_sec .date_inpt input[type=date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  display: none;
 }
-.wraper .top_tab_wraper .command_type div {
+.wraper .iner_wraper .top_bar_wraper .left_sec .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  margin-right: 3%;
+  width: 200px;
+  gap: 10px;
 }
-.wraper .top_tab_wraper .datePicker {
-  position: relative;
+.wraper .iner_wraper .top_bar_wraper .left_sec .pagination button {
+  height: 25px;
+  width: 45px;
+  text-align: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  border: 0.5px solid gray;
+  border-radius: 5px;
+  font-size: 20px;
 }
-.wraper .table_wraper {
-  height: 80%;
-  width: 95%;
+.wraper .iner_wraper .top_bar_wraper .left_sec .pagination button:nth-of-type(2) {
+  rotate: 180deg;
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .pagination button:hover {
+  background-color: rgba(245, 245, 245, 0.37);
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .order_count {
+  gap: 10px;
+  display: flex;
+  width: 200px;
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .order_count p:last-child {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  word-wrap: none;
+  text-wrap: nowrap;
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .order_type {
+  margin-right: 10px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .order_type select {
+  background-color: var(--side-bar-bgColor);
+  color: var(--text-color);
+  height: 35px;
+  width: 200px;
+  font-size: medium;
+  border-radius: 5px;
+  border: 0.5px solid gray;
+  outline: none;
+}
+.wraper .iner_wraper .top_bar_wraper .left_sec .order_type select option {
+  text-align: center;
+}
+.wraper .iner_wraper .table_wraper {
+  height: 100%;
+  width: 100%;
   transition: width 300ms ease;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
   scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) var(--side-bar-bgColor);
 }
-.wraper .table_wraper table {
+.wraper .iner_wraper .table_wraper table {
   table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
 }
-.wraper .table_wraper table thead {
+.wraper .iner_wraper .table_wraper table thead {
   padding: 0;
   margin: 0;
 }
-.wraper .table_wraper table thead tr {
+.wraper .iner_wraper .table_wraper table thead tr {
   position: sticky;
   top: 0;
   height: 45px;
@@ -116,7 +225,7 @@
   backdrop-filter: blur(10px);
   text-wrap: nowrap;
 }
-.wraper .table_wraper table thead tr th {
+.wraper .iner_wraper .table_wraper table thead tr th {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -125,136 +234,143 @@
   margin: 0;
   font-weight: 300;
 }
-.wraper .table_wraper table thead tr th input[type=checkbox] {
+.wraper .iner_wraper .table_wraper table thead tr th input[type=checkbox] {
   margin: 0;
   height: 15px;
   accent-color: var(--accent-color);
   width: 15px;
 }
-.wraper .table_wraper table thead tr th:first-child {
+.wraper .iner_wraper .table_wraper table thead tr th:first-child {
   padding-right: 10px;
   width: 30px;
 }
-.wraper .table_wraper table thead tr th:nth-child(2) {
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(2) {
   padding-right: 10px;
+  width: 100px;
 }
-.wraper .table_wraper table thead tr th:nth-child(3) {
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(3) {
   text-align: right;
+  width: 100px;
 }
-.wraper .table_wraper table thead tr th:nth-child(4), .wraper .table_wraper table thead tr th:nth-child(5), .wraper .table_wraper table thead tr th:nth-child(7) {
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(4), .wraper .iner_wraper .table_wraper table thead tr th:nth-child(5), .wraper .iner_wraper .table_wraper table thead tr th:nth-child(7) {
   width: 70px;
 }
-.wraper .table_wraper table thead tr th:nth-child(7) {
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(7) {
   text-align: center;
 }
-.wraper .table_wraper table thead tr th:nth-child(6) {
-  width: 120px;
-  text-align: center;
-}
-.wraper .table_wraper table thead tr th:nth-child(4), .wraper .table_wraper table thead tr th:nth-child(5) {
-  text-align: center;
-}
-.wraper .table_wraper table thead tr th:nth-child(9) {
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(6) {
   width: 100px;
   text-align: center;
 }
-.wraper .table_wraper table thead tr th:nth-child(8) {
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(4), .wraper .iner_wraper .table_wraper table thead tr th:nth-child(5) {
   text-align: center;
   width: 70px;
 }
-.wraper .table_wraper table thead tr th:nth-child(10) {
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(9) {
+  width: 100px;
   text-align: center;
 }
-.wraper .table_wraper table thead tr th:nth-child(12) {
-  width: 50px;
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(8) {
   text-align: center;
+  width: 70px;
 }
-.wraper .table_wraper table thead tr th:nth-child(12) button {
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(10) {
+  text-align: center;
+  width: 90px;
+}
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(11) {
+  text-align: center;
+  width: 80px;
+}
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(12) {
+  width: 70px;
+}
+.wraper .iner_wraper .table_wraper table thead tr th:nth-child(12) button {
   all: unset;
   cursor: pointer;
 }
-.wraper .table_wraper table thead tr th input {
+.wraper .iner_wraper .table_wraper table thead tr th input {
   margin: 0;
   padding: 0;
 }
-.wraper .table_wraper table tbody tr {
+.wraper .iner_wraper .table_wraper table tbody tr {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 45px;
 }
-.wraper .table_wraper table tbody tr:nth-child(even) {
+.wraper .iner_wraper .table_wraper table tbody tr:nth-child(even) {
   background-color: var(--side-bar-bgColor);
 }
-.wraper .table_wraper table tbody tr td {
+.wraper .iner_wraper .table_wraper table tbody tr td {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-weight: 200;
-  color: rgb(199, 199, 199);
+  color: var(--order-table-txt-color);
+  text-wrap: nowrap;
 }
-.wraper .table_wraper table tbody tr td a {
-  text-decoration: none;
-  color: inherit;
-  border: 0.5px solid white;
-}
-.wraper .table_wraper table tbody tr td:first-child {
+.wraper .iner_wraper .table_wraper table tbody tr td:first-child {
   padding-right: 10px;
 }
-.wraper .table_wraper table tbody tr td:nth-child(3) {
-  overflow: scroll;
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(3) {
+  overflow: auto;
   text-wrap: nowrap;
+  scrollbar-width: none;
   font-weight: 300;
 }
-.wraper .table_wraper table tbody tr td:nth-child(2) {
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(2) {
   text-align: right;
   direction: ltr;
   padding-right: 10px;
 }
-.wraper .table_wraper table tbody tr td:nth-child(4), .wraper .table_wraper table tbody tr td:nth-child(5), .wraper .table_wraper table tbody tr td:nth-child(7) {
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(4), .wraper .iner_wraper .table_wraper table tbody tr td:nth-child(5), .wraper .iner_wraper .table_wraper table tbody tr td:nth-child(7) {
   width: 70px;
 }
-.wraper .table_wraper table tbody tr td:nth-child(7) {
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(7) {
   text-align: center;
 }
-.wraper .table_wraper table tbody tr td:nth-child(9) {
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(9) {
   width: 80px;
   text-align: center;
 }
-.wraper .table_wraper table tbody tr td:nth-child(10) {
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(10) {
   text-align: center;
 }
-.wraper .table_wraper table tbody tr td:nth-child(6) {
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(6) {
   text-align: center;
 }
-.wraper .table_wraper table tbody tr td:nth-child(8) {
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(6) a {
+  color: var(--order-table-txt-color);
+  text-decoration: none;
+}
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(8) {
   text-align: center;
 }
-.wraper .table_wraper table tbody tr td:nth-child(12) {
-  width: 50px;
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(12) {
+  text-wrap: nowrap;
+}
+.wraper .iner_wraper .table_wraper table tbody tr td:nth-child(4), .wraper .iner_wraper .table_wraper table tbody tr td:nth-child(5) {
   text-align: center;
 }
-.wraper .table_wraper table tbody tr td:nth-child(4), .wraper .table_wraper table tbody tr td:nth-child(5) {
-  text-align: center;
-}
-.wraper .table_wraper table tbody tr td input[type=text] {
+.wraper .iner_wraper .table_wraper table tbody tr td input[type=text] {
   margin: 0;
   box-sizing: border-box;
   outline: none;
   border: none;
   background-color: rgb(218, 218, 218);
 }
-.wraper .table_wraper table tbody tr td input[type=checkbox] {
+.wraper .iner_wraper .table_wraper table tbody tr td input[type=checkbox] {
   margin: 0;
   accent-color: var(--accent-color);
   height: 15px;
   width: 15px;
 }
-.wraper .table_wraper table tbody tr td select {
+.wraper .iner_wraper .table_wraper table tbody tr td select {
   font-size: medium;
   background-color: rgb(218, 218, 218);
 }
-.wraper .table_wraper table tbody tr td button {
+.wraper .iner_wraper .table_wraper table tbody tr td button {
   all: unset;
   cursor: pointer;
   padding-left: 10px;

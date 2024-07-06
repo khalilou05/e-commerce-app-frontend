@@ -1,2 +1,2 @@
 #!/bin/bash
-sass -w .:../css --no-source-map 
+sass -w --style=compressed --no-charset .:../css --no-source-map 

@@ -55,7 +55,9 @@ function AdminLogin() {
         signal,
       });
       if (req.ok) {
+        const token = await req.json();
         localStorage.setItem("isAuth", "yes");
+        localStorage.setItem("TOKEN", token);
         route.push("/admin");
       }
       setTimeout(() => {
@@ -82,7 +84,7 @@ function AdminLogin() {
   if (pageLoading) {
     return (
       <section className={style.wraper}>
-        <Loding border="8" size="100px" />
+        <Loding size="100px" />
       </section>
     );
   }
@@ -124,9 +126,9 @@ function AdminLogin() {
               onClick={() => setshowpassword((prv) => !prv)}
             >
               {showpassword ? (
-                <EyeCrossedIcon size={"15px"} color={"white"} />
+                <EyeCrossedIcon size={"15px"} />
               ) : (
-                <EyeOpned size={"15px"} color={"white"} />
+                <EyeOpned size={"15px"} />
               )}
             </span>
             <input
@@ -153,7 +155,7 @@ function AdminLogin() {
                 type="submit"
                 onClick={Login}
               >
-                {loading ? <Loding border="5" size="30px" /> : "دخول"}
+                {loading ? <Loding size="30px" /> : "دخول"}
               </button>
             </div>
           </div>

@@ -27,7 +27,7 @@
         outline: none;
         border: none;
         background-color: var(--accent-color);
-        color: var(--text-color);
+        color: var(--btn-txt-color);
         padding: 15px;
         width: 10%;
         border-radius: 5px;
@@ -244,7 +244,7 @@
           outline: none;
           border: none;
           background-color: var(--accent-color);
-          color: var(--text-color);
+          color: var(--btn-txt-color);
           padding: 15px;
           width: 100%;
           border-radius: 5px;
@@ -295,7 +295,9 @@
           align-items: center;
           justify-content: center;
           cursor: pointer;
+          color: var(--btn-txt-color);
           svg {
+            fill: var(--btn-txt-color);
             position: relative;
 
             top: 10px;

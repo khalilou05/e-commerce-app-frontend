@@ -14,9 +14,30 @@
     overflow: hidden;
 
     .right_section {
+      position: relative;
       width: 40%;
       height: 100%;
       display: block;
+      overflow: auto;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+
+      .sticky_sec {
+        position: sticky;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 45px;
+        border: 0;
+        bottom: 0;
+        button {
+          width: 90%;
+          height: 100%;
+          background-color: blue;
+          color: var(--text-color);
+          animation: vibrate 100ms;
+        }
+      }
 
       .order_wraper {
         display: flex;
@@ -24,11 +45,8 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 50%;
+        height: 100%;
         border: 1px solid red;
-        &__hide {
-          display: none;
-        }
       }
       .article_info_section {
         width: 100%;

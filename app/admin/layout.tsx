@@ -20,10 +20,25 @@ function AdminLayout({
 
   if (isAuthenticated) {
     return (
-      <>
+      <section
+        style={{
+          display: "flex",
+          height: "100vh",
+          overflow: "hidden",
+        }}
+      >
         <Sidebar />
-        {children}
-      </>
+        <section
+          style={{
+            overflow: "hidden",
+            boxSizing: "border-box",
+            height: "100vh",
+            width: "100vw",
+          }}
+        >
+          {children}
+        </section>
+      </section>
     );
   }
   return (
@@ -36,7 +51,7 @@ function AdminLayout({
         alignItems: "center",
       }}
     >
-      <Loading border="8" size="50px" />
+      <Loading width="100px" />
     </section>
   );
 }

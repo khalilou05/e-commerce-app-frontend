@@ -15,26 +15,25 @@ import { useRouter } from "next/navigation";
 
 function Sidebar() {
   const [navOpen, setnavOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState("light");
+  const [darkMode, setDarkMode] = useState("dark");
 
   const Link1 = useRef<HTMLAnchorElement>(null);
   const Link2 = useRef<HTMLAnchorElement>(null);
   const Link3 = useRef<HTMLAnchorElement>(null);
   const Link4 = useRef<HTMLAnchorElement>(null);
   const Link6 = useRef<HTMLAnchorElement>(null);
+
   const router = useRouter();
 
   useEffect(() => {
-    const bodyRef = document.getElementById("body");
-
-    bodyRef?.setAttribute("data-theme", darkMode);
+    const bodyEl = document.getElementById("body");
+    bodyEl?.setAttribute("data-theme", darkMode);
   }, [darkMode]);
 
   return (
     <nav
       dir="rtl"
       style={{
-        // width: "200px",
         width: navOpen ? "200px" : "60px",
       }}
       className={style.wraper}
@@ -101,7 +100,7 @@ function Sidebar() {
           <Link
             style={{ opacity: navOpen ? 1 : 0 }}
             ref={Link4}
-            href={"/admin/orders"}
+            href={"/admin"}
           >
             الطلبيات
           </Link>
@@ -109,9 +108,12 @@ function Sidebar() {
       </div>
       <div className={style.bottom_section}>
         <li
-          onClick={() =>
-            setDarkMode((prv) => (prv === "dark" ? "light" : "dark"))
-          }
+          style={{ userSelect: "none" }}
+          onClick={() => {
+            setDarkMode((prv) =>
+              prv === "dark" ? "light" : prv === "light" ? "dark" : "dark"
+            );
+          }}
         >
           <div>{darkMode == "dark" ? <SunIcon /> : <MoonIcon />}</div>
           <p

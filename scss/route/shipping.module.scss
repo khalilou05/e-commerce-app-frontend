@@ -13,10 +13,9 @@
     height: 62%;
     display: flex;
     justify-content: center;
-    overflow: scroll;
+    overflow: auto;
     scrollbar-width: thin;
-    border: 0.3px solid var(--input-border-color);
-
+    scrollbar-color: var(--scrollbar-color) var(--side-bar-bgColor);
     table {
       //   border: 1px solid red;
       height: 100%;
@@ -61,7 +60,7 @@
               height: 25px;
               border: 0.3px solid white;
               outline: none;
-              color: white;
+              color: var(--text-color);
               border-radius: 2px;
               font-size: large;
               background-color: rgba(255, 255, 255, 0.238);
@@ -81,12 +80,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
+    width: 200px;
     height: 50px;
-    color: var(--text-color);
+    color: var(--btn-txt-color);
     outline: none;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     border: none;
     text-align: center;
     font-weight: bolder;
@@ -98,6 +97,9 @@
 
     &:hover {
       background-color: var(--accent-color);
+    }
+    svg {
+      fill: var(--btn-txt-color);
     }
   }
 }

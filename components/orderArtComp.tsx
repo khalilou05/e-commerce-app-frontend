@@ -20,9 +20,21 @@ function OrderArtComp({ wilayas }: { wilayas: wilayaData[] | undefined }) {
       orderData.current[field] = value;
     }
   }
+
+  useEffect(() => {
+    const btn = document.getElementById("submit");
+    const infobox = document.getElementById("infobox");
+    const handlScroll = () => {
+      infobox?.scroll(0, 0);
+    };
+    btn?.addEventListener("click", handlScroll);
+    return () => {
+      btn?.removeEventListener("click", handlScroll);
+    };
+  });
   return (
     <section id="orderbox" className="order_wraper">
-      <label htmlFor="fullname">الإسم و اللقب</label>
+      <label htmlFor="fullname">الإٍسم الكامل</label>
       <input
         onChange={(e) => handleCHange("fullname", e.target.value)}
         type="text"
@@ -52,8 +64,6 @@ function OrderArtComp({ wilayas }: { wilayas: wilayaData[] | undefined }) {
           </option>
         ))}
       </select>
-
-      <button id="submit">اطلب الآن</button>
     </section>
   );
 }

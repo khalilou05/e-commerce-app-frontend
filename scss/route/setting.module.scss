@@ -125,7 +125,7 @@
       }
 
       button {
-        align-self: flex-end;
+        align-self: center;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -136,11 +136,14 @@
         // font-family: base.$font;
         color: var(--btn-txt-color);
         border-radius: 10px;
-        width: 6rem;
-        height: 3rem;
+        width: 150px;
+        height: 45px;
         cursor: pointer;
         &:hover {
           background-color: var(--accent-color);
+        }
+        svg {
+          fill: var(--btn-txt-color);
         }
       }
     }

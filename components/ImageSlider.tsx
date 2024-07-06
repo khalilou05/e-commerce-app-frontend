@@ -37,13 +37,15 @@ export default function ImageSlider({
   }
 
   function handleImageDelete() {
+    console.log(imgIndex);
+
     if (setImageUrlList) {
       const newImages = imageUrlsList?.filter(
         (item, index) => index !== imgIndex
       );
       if (newImages) {
         setImageUrlList(newImages);
-        setImgIndex((prv) => prv - 1);
+        setImgIndex((prv) => (prv === 0 ? newImages.length - 1 : prv - 1));
       }
     }
   }
@@ -68,7 +70,7 @@ export default function ImageSlider({
             style={{
               right: `${-100 * index}%`,
               translate: `${-100 * imgIndex}%`,
-              transition: "all 200ms",
+              transition: "all 300ms",
               userSelect: "none",
               objectFit: "cover",
             }}

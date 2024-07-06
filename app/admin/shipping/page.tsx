@@ -8,15 +8,17 @@ import { SERVER_IP } from "../../../settings.js";
 type wilayaData = {
   id: number;
   wilaya: string;
+  wilaya_code: string;
   desk_price: number;
   home_price: number;
   active: boolean;
 };
 
 function ShippingPage() {
-  const [wilaya, setwilaya] = useState<wilayaData[]>();
-  const [loading, setloading] = useState(true);
-  const [error, seterror] = useState(false);
+  const [wilaya, setwilaya] = useState<wilayaData[] | undefined>();
+  const [status, setstatus] = useState("loading");
+  const [btnLoading, setBtnLoading] = useState(false);
+  const abortcntrl = new AbortController();
 
   async function updateShippingCost() {
     const res = await fetch(`${SERVER_IP}/shipping/update`, {
@@ -26,34 +28,48 @@ function ShippingPage() {
       },
       body: JSON.stringify(wilaya),
     });
-    return res.json();
+    if (res.status === 200) {
+      setTimeout(() => {
+        setBtnLoading(false);
+      }, 300);
+      return;
+    }
   }
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`${SERVER_IP}/shipping`);
-        if (res.ok) {
+        const res = await fetch(`${SERVER_IP}/shipping`, {
+          signal: abortcntrl.signal,
+        });
+        if (res.status === 200) {
           const data = await res.json();
           setwilaya(data);
-          setloading(false);
+          setstatus("done");
+          return;
         }
+        setstatus("error");
       } catch (error) {
-        seterror(true);
         setTimeout(() => {
-          setloading(false);
+          setstatus("error");
         }, 1000);
       }
     })();
+    return () => abortcntrl.abort();
   }, []);
 
-  if (loading) {
+  if (status === "loading") {
     return (
       <section className={style.wraper}>
-        <Loding border="10" size="100px" />
+        <Loding
+          size="100px"
+          borderWidth="10px"
+          borderColor="var(--side-bar-bgColor)"
+          borderTopColor="var(--accent-color)"
+        />
       </section>
     );
   }
-  if (error) {
+  if (status === "error") {
     return (
       <section className={style.wraper}>
         <ErrorIcon size={100} />
@@ -86,7 +102,7 @@ function ShippingPage() {
           <tbody>
             {wilaya?.map((item) => (
               <tr key={item.id}>
-                <td>{item.id}</td>
+                <td>{item.wilaya_code}</td>
                 <td>{item.wilaya}</td>
                 <td>
                   <input
@@ -151,8 +167,23 @@ function ShippingPage() {
           </tbody>
         </table>
       </div>
-      <div onClick={updateShippingCost} className={style.save_button}>
-        <SaveIcon color={"white"} size={"15px"} />
+      <div
+        onClick={() => {
+          setBtnLoading(true);
+          updateShippingCost();
+        }}
+        className={style.save_button}
+      >
+        {btnLoading === true ? (
+          <Loding
+            size="15px"
+            borderWidth="2px"
+            borderColor="gray"
+            borderTopColor="white"
+          />
+        ) : (
+          <SaveIcon color={"white"} size={"15px"} />
+        )}
         حفظ
       </div>
     </section>

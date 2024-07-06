@@ -45,6 +45,9 @@ async function SingleArticle({ params }: id) {
 
             <p>{article?.description}</p>
           </section>
+          <div className="sticky_sec">
+            <button id="submit">اطلب الآن</button>
+          </div>
         </section>
         <section id="imgbox" className="img_wraper">
           <ImageSlider isAdmin={false} imageUrlsList={article?.img_url} />

@@ -1,11 +1,12 @@
 .wraper {
   height: 100%;
-  width: 50px;
   display: flex;
   overflow: hidden;
+  flex-shrink: 0;
   flex-direction: column;
   background-color: var(--side-bar-bgColor);
-  transition: width 300ms ease;
+  transition: width 300ms ease, background-color 200ms ease;
+
   .top_section {
     position: relative;
 
@@ -17,7 +18,7 @@
       flex-direction: column;
       gap: 5px;
       bottom: 0;
-      left: 14px;
+      left: 17px;
       height: auto;
       width: 25px;
       .top_line {
@@ -25,17 +26,16 @@
         height: 3px;
         background-color: var(--text-color);
         border-radius: 100px;
-        transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
+        transition: transform 300ms, width 300ms;
 
         &__close {
           width: 50%;
           height: 3px;
           background-color: var(--text-color);
           border-radius: 100px;
-          transform: translate(4px, 2px);
+          transform: translate(3px, 4px) rotate(45deg);
 
-          rotate: 45deg;
-          transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
+          transition: transform 300ms, width 300ms;
         }
       }
       .mid_line {
@@ -50,16 +50,15 @@
         height: 3px;
         border-radius: 100px;
         background-color: var(--text-color);
-        transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
+        transition: transform 300ms, width 300ms;
 
         &__close {
-          rotate: -45deg;
           width: 50%;
           height: 3px;
           border-radius: 100px;
-          transform: translate(4px, -2px);
+          transform: translate(3px, -4px) rotate(-45deg);
           background-color: var(--text-color);
-          transition: translate 300ms ease, rotate 300ms ease, width 300ms ease;
+          transition: transform 300ms, width 300ms;
         }
       }
     }

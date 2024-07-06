@@ -1,11 +1,10 @@
 import * as React from "react";
-const SvgComponent = ({ size, color }) => (
+const SvgComponent = ({ size }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"
     width={size}
     height={size}
-    fill={color}
     style={{
       enableBackground: "new 0 0 512.19 512.19",
     }}

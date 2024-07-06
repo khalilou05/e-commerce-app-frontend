@@ -1,18 +1,23 @@
 "use client";
 import React from "react";
-import Sidebar from "@/components/sidebar";
-import Loding from "@/components/Loding";
-import CheckBox from "@/components/checkbox";
-function Test() {
-  async function getBaladiya() {
-    const baladiya = fetch("/algeria_cities3.json");
 
-    console.log((await baladiya).json());
-  }
-  getBaladiya();
+import Loding from "@/components/Loding";
+
+function Test() {
   return (
-    <section>
-      <Loding size="200px" border="8" />
+    <section
+      style={{
+        width: "100%",
+        height: "100%",
+        backgroundColor: "black",
+      }}
+    >
+      <Loding
+        size="100px"
+        borderWidth="10px"
+        borderColor="var(--side-bar-bgColor)"
+        borderTopColor="var(--accent-color)"
+      />
     </section>
   );
 }

@@ -7,20 +7,50 @@
 
   .main_section {
     width: 80%;
-    height: 60%;
-    overflow: scroll;
+    height: 70%;
+
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) var(--side-bar-bgColor);
 
-    .article_wraper {
-      display: flex;
-      width: 100%;
+    table {
+      border-collapse: collapse;
+      thead {
+        tr {
+          background-color: rgba(255, 255, 255, 0.184);
+          height: 45px;
+          position: sticky;
+          top: 0;
+          backdrop-filter: blur(10px);
+          th {
+            text-align: right;
+          }
+        }
+      }
 
-      div {
-        height: 100px;
+      tbody {
+        tr {
+          margin-bottom: 20px;
+          &:nth-of-type(even) {
+            background-color: var(--side-bar-bgColor);
+          }
+          td {
+            text-align: right;
 
-        width: 100%;
+            &:nth-of-type(7) {
+              // background-color: orange;
+
+              button {
+                outline: none;
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+              }
+            }
+          }
+        }
       }
     }
   }

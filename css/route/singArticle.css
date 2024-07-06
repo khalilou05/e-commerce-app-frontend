@@ -1,17 +1,153 @@
-/* Error: There is no module with the namespace "base".
- *    ,
- * 11 |     background-color: base.$sidebar_bgColor;
- *    |                       ^^^^^^^^^^^^^^^^^^^^^
- *    '
- *   route/singArticle.scss 11:23  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
+.wraper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wraper .article_wraper {
+  width: 80%;
+  height: 80%;
+  background-color: var(--side-bar-bgColor);
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.wraper .article_wraper .right_section {
+  position: relative;
+  width: 40%;
+  height: 100%;
   display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: There is no module with the namespace "base".\a    \2577 \a 11 \2502      background-color: base.$sidebar_bgColor;\a    \2502                        ^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   route/singArticle.scss 11:23  root stylesheet';
+  overflow: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.wraper .article_wraper .right_section .sticky_sec {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 45px;
+  border: 0;
+  bottom: 0;
+}
+.wraper .article_wraper .right_section .sticky_sec button {
+  width: 90%;
+  height: 100%;
+  background-color: blue;
+  color: var(--text-color);
+  animation: vibrate 100ms;
+}
+.wraper .article_wraper .right_section .order_wraper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+.wraper .article_wraper .right_section .article_info_section {
+  width: 100%;
+  height: 100%;
+}
+.wraper .article_wraper .img_wraper {
+  width: 70%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  flex-direction: row-reverse;
+}
+.wraper .article_wraper .img_wraper:hover button {
+  opacity: 1;
+}
+.wraper .article_wraper .img_wraper:hover .indicator_section {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.wraper .article_wraper .img_wraper:hover .indicator_section .ind_point {
+  opacity: 1;
+  cursor: pointer;
+}
+.wraper .article_wraper .img_wraper button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.217), transparent);
+  height: 100%;
+  transition: opacity 300ms;
+}
+.wraper .article_wraper .img_wraper button:nth-of-type(2) {
+  rotate: 180deg;
+}
+.wraper .article_wraper .img_wraper .indicator_section {
+  width: 50px;
+  position: absolute;
+  transform: translate(50%);
+  bottom: 10px;
+  right: 50%;
+  height: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.wraper .article_wraper .img_wraper .indicator_section .ind_point {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+@media screen and (max-width: 430px) {
+  .wraper {
+    display: flex;
+    flex-direction: column;
+  }
+  .wraper .article_wraper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column-reverse;
+  }
+  .wraper .article_wraper .right_section {
+    width: 100%;
+  }
+  .wraper .article_wraper .img_wraper {
+    width: 100%;
+    height: 70%;
+  }
+  .wraper .article_wraper .img_wraper button {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 300px) {
+  .wraper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+  .wraper .article_wraper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .wraper .article_wraper .right_section {
+    display: none;
+  }
+  .wraper .article_wraper .img_wraper {
+    width: 100%;
+    height: 100%;
+  }
+  .wraper .article_wraper .img_wraper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .wraper .article_wraper .img_wraper button {
+    opacity: 1;
+  }
 }

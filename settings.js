@@ -1,2 +1,2 @@
-export const SERVER_IP = "https://164.68.112.184/api";
-export const DEV_MODE = true;
+export const SERVER_IP = "http://localhost:8000";
+export const DEV_MODE = false;

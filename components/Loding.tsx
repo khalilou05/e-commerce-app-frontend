@@ -1,17 +1,26 @@
 import style from "@/css/component/loiding.module.css";
 type loadingProp = {
   size: string;
-  border: string;
+  borderWidth?: string;
+  borderTopColor?: string;
+  borderColor?: string;
 };
-export default function Loding({ size, border }: loadingProp) {
-  const borderSize = border || 8;
+export default function Loding({
+  size,
+  borderWidth,
+  borderTopColor,
+  borderColor,
+}: loadingProp) {
   return (
     <div
       style={{
         width: size,
         borderRadius: "50%",
         aspectRatio: 1,
-        border: `${borderSize}px solid #686D76`,
+        borderLeft: `${borderWidth} solid ${borderColor}`,
+        borderRight: `${borderWidth} solid ${borderColor}`,
+        borderBottom: `${borderWidth} solid ${borderColor}`,
+        borderTop: `${borderWidth} solid ${borderTopColor}`,
       }}
       className={style.loading}
     ></div>

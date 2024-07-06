@@ -14,6 +14,7 @@ export type UIAllarticle = {
   price: number;
   img_url: string;
   quantity: number;
+  viewed_number: number;
   free_shipping: boolean;
   published: string;
 };
@@ -48,50 +49,48 @@ export const getArticleById = async (
 };
 
 // ! ---------- DELETE ARTICLE  ------------
-export const deleteArticle = async (id: number) => {
+export const deleteArticle = async (id: number, TOKEN: string) => {
   if (DEV_MODE) return;
 
   const req = await fetch(`${baseUrl}/article/${id}`, {
     method: "DELETE",
-    headers: {},
+
+    headers: {
+      Authorization: `Basic ${TOKEN}`,
+    },
   });
   const resp = await req.json();
   return resp;
 };
 
 // ! ---------- CREATE ARTICLE  ------------
-export const createArticle = async (data: FormData) => {
+export const createArticle = async (data: FormData, TOKEN: string) => {
   if (DEV_MODE) return;
 
   const req = await fetch(`${baseUrl}/article/add`, {
     method: "POST",
-
+    headers: {
+      Authorization: `Basic ${TOKEN}`,
+    },
     body: data,
   });
   return req;
 };
 
 // ! ---------- UPDATE ARTICLE  ------------
-export const updateArticle = async (data: UIArticle, id: number) => {
+export const updateArticle = async (
+  data: UIArticle,
+  id: number,
+  TOKEN: string
+) => {
   if (DEV_MODE) return;
 
   const req = await fetch(`${baseUrl}/article/${id}`, {
     method: "PUT",
-    headers: {},
+    headers: {
+      Authorization: `Basic ${TOKEN}`,
+    },
     body: JSON.stringify(data),
-  });
-  const resp = await req.json();
-  return resp;
-};
-
-// ! ---------- UPLOAD ARTICLE IMAGES  ------------
-export const uploadArticleImg = async (images: any, id: number) => {
-  if (DEV_MODE) return;
-
-  const req = await fetch(`${baseUrl}/article/img`, {
-    method: "POST",
-    headers: {},
-    body: images,
   });
   const resp = await req.json();
   return resp;

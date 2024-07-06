@@ -4,20 +4,29 @@
   box-sizing: border-box;
 }
 :root {
-  --input-border-color: black;
-  --text-color: black;
+  --bg-color: rgb(238, 237, 237);
+  --side-bar-bgColor: #d9d9d9;
+  --text-color: #363636;
   --icon-color: black;
+  --input-border-color: black;
   --btn-txt-color: white;
   --img-slider-btn-txt: white;
-  --img-slider-btn-icon-color: white;
-  --accent-color: blue;
+  --hover-btn-color: white;
+  --accent-color: #2542ff;
+  --scrollbar-color: hsl(from var(--accent-color) h s l / 0.3);
+  --order-table-txt-color: rgb(0, 0, 0);
 
   [data-theme="dark"] {
-    --icon-color: white;
-    --text-color: white;
     --bg-color: #212026;
     --side-bar-bgColor: rgb(38, 37, 43);
+    --text-color: white;
+    --icon-color: white;
     --input-border-color: white;
+    --hover-btn-color: white;
+    --accent-color: #2542ff;
+    --scrollbar-color: hsl(from var(--accent-color) h s l / 0.3);
+
+    --order-table-txt-color: rgb(228, 228, 228);
   }
 }
 body {
@@ -28,7 +37,7 @@ body {
   display: flex;
   width: 100vw;
   height: 100vh;
-
+  overflow: hidden;
   transition: background-color 200ms ease;
 
   svg {
