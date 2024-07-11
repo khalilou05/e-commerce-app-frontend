@@ -56,11 +56,11 @@ function SettingPage() {
           <div className={style.EyeIcon}>
             {show ? (
               <span onClick={() => setshow((prv) => !prv)}>
-                <EyeClose size={"15px"} color={"white"} />
+                <EyeClose size={"15px"} />
               </span>
             ) : (
               <span onClick={() => setshow((prv) => !prv)}>
-                <EyeOpen size={"15px"} color={"white"} />
+                <EyeOpen size={"15px"} />
               </span>
             )}
           </div>
