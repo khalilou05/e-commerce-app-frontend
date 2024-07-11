@@ -64,7 +64,7 @@ function Sidebar() {
             ref={Link1}
             href={"/admin/addarticle"}
           >
-            إضافة منتج
+            إضـافـة مـنـتـج
           </Link>
         </li>
         <li onClick={() => Link2.current?.click()}>
@@ -77,7 +77,7 @@ function Sidebar() {
             ref={Link2}
             href={"/admin/article"}
           >
-            إدارة المنتجات
+            إدارة المنـتجـات
           </Link>
         </li>
         <li onClick={() => Link3.current?.click()}>
@@ -102,7 +102,7 @@ function Sidebar() {
             ref={Link4}
             href={"/admin"}
           >
-            الطلبيات
+            الــطـلـبـــيـــات
           </Link>
         </li>
       </div>
@@ -116,7 +116,7 @@ function Sidebar() {
           }}
         >
           <div>{darkMode == "dark" ? <SunIcon /> : <MoonIcon />}</div>
-          <p
+          <a
             style={{
               opacity: navOpen ? 1 : 0,
               textWrap: "nowrap",
@@ -124,7 +124,7 @@ function Sidebar() {
             }}
           >
             {darkMode == "dark" ? "الوضع النهاري" : "الوضع الليلي"}
-          </p>
+          </a>
         </li>
         <li onClick={() => Link6.current?.click()}>
           <div>
@@ -136,7 +136,7 @@ function Sidebar() {
             ref={Link6}
             href={"/admin/setting"}
           >
-            إعدادات
+            إعـــــدادات
           </Link>
         </li>
         <li
@@ -149,14 +149,14 @@ function Sidebar() {
             <LogoutIcon />
           </div>
 
-          <p
+          <a
             style={{
               opacity: navOpen ? 1 : 0,
               userSelect: "none",
             }}
           >
-            الخروج
-          </p>
+            الــخـــروج
+          </a>
         </li>
       </div>
     </nav>

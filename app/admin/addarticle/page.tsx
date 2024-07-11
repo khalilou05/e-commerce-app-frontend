@@ -3,7 +3,7 @@
 import ImageBG from "@/assets/icons/image";
 import AddImageIcon from "@/assets/icons/addImage";
 import style from "@/css/route/addArticle.module.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createArticle } from "@/api/ArticleApi";
 import ErrorIcon from "@/assets/icons/error.js";
 import DoneIcon from "@/assets/icons/done";
@@ -22,13 +22,16 @@ export type articleData = {
 
 export default function AddArticle() {
   const [imageList, setimageList] = useState<File[]>([]);
+  const [accessToken, setToken] = useState("");
   const [imageUrlList, setimageUrlList] = useState<string[]>([]);
-
   const [status, setstatus] = useState("idle");
   const articleData = useRef<articleData>({} as articleData);
-
   const data = new FormData();
 
+  useEffect(() => {
+    const token = localStorage.getItem("token") || "";
+    setToken(token);
+  }, []);
   async function uploadData() {
     if (articleData.current) {
       for (const [key, value] of Object.entries(articleData.current)) {
@@ -41,7 +44,7 @@ export default function AddArticle() {
       data.append("images", img);
     }
     try {
-      const response = await createArticle(data);
+      const response = await createArticle(data, accessToken);
       if (response && response.status == 201) {
         setstatus("done");
       }
@@ -171,7 +174,7 @@ export default function AddArticle() {
             ></textarea>
             <label htmlFor="desc">وصف المنتج</label>
 
-            <button onClick={uploadData}>إضافة</button>
+            <button onClick={uploadData}>إضــافــة</button>
           </div>
         </div>
         <div className={style.left_sec}>

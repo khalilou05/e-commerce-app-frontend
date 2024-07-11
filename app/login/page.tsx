@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import style from "@/css/route/login.module.css";
 import LockIcon from "@/assets/login_icon/lock.js";
@@ -9,6 +8,7 @@ import EyeCrossedIcon from "@/assets/login_icon/eyecrossed.js";
 import EyeOpned from "@/assets/login_icon/eyeOpen.js";
 import Loding from "@/components/Loding";
 import { SERVER_IP } from "../../settings.js";
+import { adminLogin } from "@/api/AuthApi";
 
 function AdminLogin() {
   const loginData = useRef({
@@ -45,16 +45,8 @@ function AdminLogin() {
 
     try {
       setLoading(true);
-      const req = await fetch(`${SERVER_IP}/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(loginData.current),
-        signal,
-      });
-      if (req.ok) {
+      const req = await adminLogin(loginData.current);
+      if (req && req.status == 200) {
         const token = await req.json();
         localStorage.setItem("isAuth", "yes");
         localStorage.setItem("TOKEN", token);

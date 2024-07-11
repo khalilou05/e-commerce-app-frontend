@@ -242,7 +242,7 @@
             position: sticky;
             top: 0;
             height: 45px;
-            background-color: #413f4d5b;
+            background-color: var(--side-bar-bgColor);
             backdrop-filter: blur(10px);
             text-wrap: nowrap;
             th {
