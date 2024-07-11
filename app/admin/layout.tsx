@@ -51,7 +51,7 @@ function AdminLayout({
         alignItems: "center",
       }}
     >
-      <Loading width="100px" />
+      <Loading size="100px" />
     </section>
   );
 }
