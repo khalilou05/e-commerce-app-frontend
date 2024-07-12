@@ -18,7 +18,7 @@ async function SingleArticle({ params }: id) {
   const article = await getArticleById(articleId);
   const wilaya = await getAllWilaya();
 
-  if (article === null) {
+  if (article === undefined) {
     return (
       <section className={style.wraper}>
         <ErrorIcon size={100} />
